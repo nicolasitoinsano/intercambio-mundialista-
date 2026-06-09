@@ -1,0 +1,2567 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MundialSwap 2026 - Álbum Oficial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.0.0/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+<style>
+  :root {
+    --red: #E4002B;
+    --green: #00A651;
+    --blue: #003DA5;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4, .heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes slideRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes kickBall {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(45deg); }
+    50% { transform: translate(20px, 0) rotate(90deg); }
+    75% { transform: translate(10px, -10px) rotate(135deg); }
+  }
+  @keyframes holoShine {
+    0% { background-position: 200% 200%; }
+    100% { background-position: -200% -200%; }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-fade { animation: fadeIn 0.4s ease-out forwards; }
+  .animate-scale { animation: scaleIn 0.4s ease-out forwards; }
+  .animate-slide-up { animation: slideUp 0.4s ease-out forwards; }
+  .animate-slide-right { animation: slideRight 0.4s ease-out forwards; }
+  .animate-kick { animation: kickBall 3s ease-in-out infinite; }
+  .animate-bounce-in { animation: bounceIn 0.5s ease-out forwards; }
+  .animate-pulse-soft { animation: pulse 2s ease-in-out infinite; }
+
+  .btn-primary {
+    background: var(--red);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  .btn-primary:hover {
+    background: #c40024;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(228, 0, 43, 0.3);
+  }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--text);
+    background: white;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .btn-green {
+    background: var(--green);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  .btn-green:hover { background: #008c44; transform: translateY(-1px); }
+
+  .btn-red {
+    background: var(--red);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  .btn-red:hover { background: #c40024; transform: translateY(-1px); }
+
+  .btn-blue {
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  .btn-blue:hover { background: #002d7a; transform: translateY(-1px); }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #cbd5e1;
+  }
+
+  .nav-item {
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .nav-item:hover { color: var(--text); }
+  .nav-item.active { color: var(--red); font-weight: 600; }
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; left: 0; right: 0;
+    height: 2px;
+    background: var(--red);
+    border-radius: 2px;
+  }
+
+  .sticker-slot {
+    background: white;
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+  }
+  .sticker-slot:hover {
+    border-color: var(--blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+  .sticker-slot.owned {
+    border: 2px solid var(--green);
+    background: linear-gradient(145deg, #f0fdf4, #dcfce7);
+  }
+  .sticker-slot.owned::after {
+    content: '✓';
+    position: absolute;
+    top: 6px; right: 6px;
+    background: var(--green);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px;
+    z-index: 10;
+  }
+  .holo-effect {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg, transparent 30%, rgba(255,255,255,0.4) 45%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.4) 55%, transparent 70%);
+    background-size: 200% 200%;
+    animation: holoShine 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .chat-bubble-me {
+    background: var(--blue);
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+  }
+  .chat-bubble-other {
+    background: white;
+    color: var(--text);
+    border-radius: 18px 18px 18px 4px;
+    border: 1px solid var(--border);
+  }
+
+  .feed-post {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  .feed-post:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+
+  .match-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  .match-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    border-color: var(--blue);
+  }
+
+  .trade-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .trade-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .trade-card.status-pending { border-left: 4px solid #f59e0b; }
+  .trade-card.status-accepted { border-left: 4px solid var(--green); }
+  .trade-card.status-rejected { border-left: 4px solid var(--red); opacity: 0.85; }
+  .trade-card.status-completed { border-left: 4px solid var(--blue); }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .status-pending { background: #fef3c7; color: #92400e; }
+  .status-accepted { background: #dcfce7; color: #065f46; }
+  .status-rejected { background: #fee2e2; color: #991b1b; }
+  .status-completed { background: #dbeafe; color: #1e40af; }
+
+  .stat-ring { position: relative; width: 120px; height: 120px; }
+  .stat-ring svg { transform: rotate(-90deg); }
+  .stat-ring circle { fill: none; stroke-width: 8; }
+  .stat-ring .bg-ring { stroke: var(--border); }
+  .stat-ring .progress-ring {
+    stroke: var(--green);
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+  .hidden-view { display: none !important; }
+
+  .toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 14px 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    border-left: 4px solid var(--green);
+    animation: slideRight 0.3s ease-out;
+    max-width: 340px;
+  }
+  .toast.success { border-left-color: var(--green); }
+  .toast.error { border-left-color: var(--red); }
+  .toast.warning { border-left-color: #f59e0b; }
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.2s ease;
+  }
+  .modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: scaleIn 0.3s ease;
+  }
+
+  .like-btn.liked i { color: var(--red); }
+  .like-btn.liked i::before { content: "\f004"; }
+  .like-btn i::before { content: "\f08a"; }
+
+  .tab-btn {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--muted);
+  }
+  .tab-btn.active {
+    background: var(--text);
+    color: white;
+    border-color: var(--text);
+  }
+  .tab-btn:not(.active):hover { border-color: var(--blue); color: var(--blue); }
+
+  .notification-dot {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 10px; height: 10px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .stadium-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+  }
+  .stadium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .stadium-img {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .stadium-country-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 11px;
+    color: white;
+  }
+  .country-mexico { background: var(--green); }
+  .country-usa { background: var(--blue); }
+  .country-canada { background: var(--red); }
+
+  .album-page {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .progress-bar {
+    background: linear-gradient(90deg, var(--green), var(--blue));
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:var(--green)"/>
+      <stop offset="100%" style="stop-color:var(--blue)"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- INTRO -->
+<div id="introOverlay" class="fixed inset-0 z-[100] flex items-center justify-center flex-col overflow-hidden bg-white">
+  <div class="relative z-10 text-center px-4 max-w-4xl">
+    <div class="mb-6 animate-bounce-in">
+      <img src="https://image.qwenlm.ai/public_source/7e894e1a-5d8e-41a3-a0e4-4f279b4ddc68/123df258b-afdd-45db-a3c1-8570f8e00e9e.png" 
+           alt="Copa del Mundo" 
+           class="mx-auto w-40 md:w-56 drop-shadow-lg animate-kick">
+    </div>
+    <h1 class="text-4xl md:text-6xl font-black mb-3" style="color: var(--red);">
+      MUNDIALSWAP
+    </h1>
+    <p class="text-xl md:text-2xl font-bold mb-2" style="color: var(--blue);">
+      2026 • FIFA World Cup
+    </p>
+    <p class="text-base text-gray-500 mb-8">
+      Intercambio oficial de fichas del Mundial
+    </p>
+    <div class="flex gap-3 justify-center flex-wrap">
+      <button onclick="goToLogin()" class="btn-primary px-8 py-3 rounded-lg font-bold text-base">
+        <i class="fas fa-play mr-2"></i> Entrar
+      </button>
+      <button onclick="showIntroInfo()" class="btn-outline px-8 py-3 rounded-lg font-bold text-base">
+        <i class="fas fa-info-circle mr-2"></i> Info
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginView" class="hidden-view fixed inset-0 z-[90] flex items-center justify-center p-4 overflow-y-auto bg-white">
+  <div class="w-full max-w-md my-8">
+    <div class="text-center mb-8 animate-bounce-in">
+      <img src="https://image.qwenlm.ai/public_source/7e894e1a-5d8e-41a3-a0e4-4f279b4ddc68/123df258b-afdd-45db-a3c1-8570f8e00e9e.png" 
+           alt="Copa" class="mx-auto w-20 mb-4">
+      <h2 class="text-3xl font-black" style="color: var(--red);">MUNDIALSWAP</h2>
+      <p class="text-gray-500 mt-2">Inicia sesión para comenzar</p>
+    </div>
+    <div class="card p-8 animate-scale">
+      <div class="mb-5">
+        <label class="block text-sm font-semibold text-gray-700 mb-2">
+          <i class="fas fa-user mr-2"></i> Usuario
+        </label>
+        <input type="text" id="loginUser" placeholder="Tu nombre" 
+          class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:border-blue-500 transition">
+      </div>
+      <div class="mb-5">
+        <label class="block text-sm font-semibold text-gray-700 mb-2">
+          <i class="fas fa-lock mr-2"></i> Contraseña
+        </label>
+        <input type="password" id="loginPass" placeholder="••••••••" 
+          class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:border-blue-500 transition">
+      </div>
+      <div class="mb-5 flex items-center justify-between text-sm">
+        <label class="flex items-center text-gray-600 cursor-pointer">
+          <input type="checkbox" class="mr-2 accent-blue-600"> Recordarme
+        </label>
+        <a href="#" onclick="showForgotPassword()" class="text-blue-600 hover:underline">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button onclick="doLogin()" class="btn-primary w-full py-3 rounded-lg font-bold text-base">
+        <i class="fas fa-sign-in-alt mr-2"></i> Ingresar
+      </button>
+      <div class="mt-5 text-center">
+        <p class="text-gray-500 text-sm mb-3">O continúa con</p>
+        <div class="flex gap-3 justify-center">
+          <button onclick="socialLogin('Google')" class="btn-outline px-4 py-2 rounded-lg"><i class="fab fa-google"></i></button>
+          <button onclick="socialLogin('Facebook')" class="btn-outline px-4 py-2 rounded-lg"><i class="fab fa-facebook-f"></i></button>
+          <button onclick="socialLogin('Apple')" class="btn-outline px-4 py-2 rounded-lg"><i class="fab fa-apple"></i></button>
+        </div>
+      </div>
+      <div class="mt-5 text-center border-t border-gray-200 pt-4">
+        <p class="text-gray-500 text-sm">¿No tienes cuenta? 
+          <a href="#" onclick="showRegister()" class="text-blue-600 font-semibold hover:underline">Regístrate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp" class="hidden-view min-h-screen">
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
+        <img src="https://image.qwenlm.ai/public_source/7e894e1a-5d8e-41a3-a0e4-4f279b4ddc68/123df258b-afdd-45db-a3c1-8570f8e00e9e.png" 
+             alt="Logo" class="w-9 h-9">
+        <span class="text-lg font-black hidden sm:block" style="color: var(--red);">MUNDIALSWAP</span>
+      </div>
+      <div class="hidden md:flex items-center gap-5">
+        <button onclick="showView('home')" class="nav-item text-sm" data-nav="home">
+          <i class="fas fa-home mr-1"></i> Inicio
+        </button>
+        <button onclick="showView('album')" class="nav-item text-sm" data-nav="album">
+          <i class="fas fa-book mr-1"></i> Álbum
+        </button>
+        <button onclick="showView('exchange')" class="nav-item text-sm relative" data-nav="exchange">
+          <i class="fas fa-exchange-alt mr-1"></i> Cambios
+          <span id="tradesBadge" class="absolute -top-2 -right-3 bg-yellow-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold hidden">0</span>
+        </button>
+        <button onclick="showView('pending')" class="nav-item text-sm relative" data-nav="pending">
+          <i class="fas fa-clock mr-1"></i> Pendientes
+          <span id="pendingBadge" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold hidden">0</span>
+        </button>
+        <button onclick="showView('venues')" class="nav-item text-sm" data-nav="venues">
+          <i class="fas fa-map-marker-alt mr-1"></i> Sedes
+        </button>
+        <button onclick="showView('feed')" class="nav-item text-sm" data-nav="feed">
+          <i class="fas fa-newspaper mr-1"></i> Feed
+        </button>
+        <button onclick="showView('matches')" class="nav-item text-sm" data-nav="matches">
+          <i class="fas fa-calendar-alt mr-1"></i> Partidos
+        </button>
+        <button onclick="showView('chat')" class="nav-item text-sm relative" data-nav="chat">
+          <i class="fas fa-comments mr-1"></i> Chat
+          <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="chatBadge">3</span>
+        </button>
+        <button onclick="showView('profile')" class="nav-item text-sm" data-nav="profile">
+          <i class="fas fa-user mr-1"></i> Perfil
+        </button>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="text-right hidden sm:block">
+          <div class="text-sm font-bold" id="navUsername">Usuario</div>
+          <div class="text-xs text-gray-500">Coleccionista</div>
+        </div>
+        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-sm text-white" id="navAvatar">U</div>
+        <button onclick="doLogout()" class="text-gray-500 hover:text-red-600 transition ml-2 cursor-pointer">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </div>
+    <div class="md:hidden flex overflow-x-auto border-t border-gray-200 px-2 py-2 gap-1 bg-white">
+      <button onclick="showView('home')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-home"></i></button>
+      <button onclick="showView('album')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-book"></i></button>
+      <button onclick="showView('exchange')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-exchange-alt"></i></button>
+      <button onclick="showView('pending')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-clock"></i></button>
+      <button onclick="showView('venues')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-map-marker-alt"></i></button>
+      <button onclick="showView('feed')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-newspaper"></i></button>
+      <button onclick="showView('matches')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-calendar"></i></button>
+      <button onclick="showView('chat')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-comments"></i></button>
+      <button onclick="showView('profile')" class="nav-item text-xs px-3 py-2 whitespace-nowrap"><i class="fas fa-user"></i></button>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div id="view-home" class="view-section max-w-7xl mx-auto px-4 py-8">
+    <div class="text-center mb-8 animate-fade">
+      <h1 class="text-3xl md:text-4xl font-black mb-2">
+        Bienvenido al <span style="color: var(--red);">Mundial 2026</span>
+      </h1>
+      <p class="text-gray-500">Completa tu álbum e intercambia fichas</p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div class="card p-5 text-center animate-bounce-in" style="animation-delay: 0.1s;">
+        <div class="text-3xl font-black" style="color: var(--green);" id="statOwned">0</div>
+        <div class="text-sm text-gray-500 mt-1">Obtenidas</div>
+      </div>
+      <div class="card p-5 text-center animate-bounce-in" style="animation-delay: 0.15s;">
+        <div class="text-3xl font-black" style="color: var(--red);" id="statMissing">144</div>
+        <div class="text-sm text-gray-500 mt-1">Faltantes</div>
+      </div>
+      <div class="card p-5 text-center animate-bounce-in relative" style="animation-delay: 0.2s;">
+        <div class="text-3xl font-black" style="color: #f59e0b;" id="statTrades">0</div>
+        <div class="text-sm text-gray-500 mt-1">Pendientes</div>
+      </div>
+      <div class="card p-5 text-center animate-bounce-in" style="animation-delay: 0.25s;">
+        <div class="text-3xl font-black" style="color: var(--blue);" id="statFriends">48</div>
+        <div class="text-sm text-gray-500 mt-1">Amigos</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <button onclick="showView('album')" class="card p-5 text-left group animate-bounce-in" style="animation-delay: 0.1s;">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-xl text-green-700 group-hover:scale-110 transition">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Mi Álbum</h3>
+            <p class="text-sm text-gray-500">144 fichas</p>
+          </div>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div class="progress-bar h-2 rounded-full transition-all" style="width: 0%" id="homeProgressBar"></div>
+        </div>
+        <p class="text-xs text-gray-500 mt-2" id="homeProgressText">0% completado</p>
+      </button>
+
+      <button onclick="showView('pending')" class="card p-5 text-left group animate-bounce-in relative" style="animation-delay: 0.15s;">
+        <div id="pendingAlertBadge" class="absolute top-4 right-4 hidden">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+          </span>
+        </div>
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-xl text-yellow-700 group-hover:scale-110 transition">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Pendientes</h3>
+            <p class="text-sm text-gray-500" id="pendingCountText">0 pendientes</p>
+          </div>
+        </div>
+        <p class="text-xs text-blue-600 mt-2 font-medium"><i class="fas fa-arrow-right"></i> Gestionar intercambios</p>
+      </button>
+
+      <button onclick="showView('exchange')" class="card p-5 text-left group animate-bounce-in" style="animation-delay: 0.2s;">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-xl text-red-700 group-hover:scale-110 transition">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Intercambiar</h3>
+            <p class="text-sm text-gray-500">24 ofertas</p>
+          </div>
+        </div>
+        <p class="text-xs text-blue-600 mt-2 font-medium"><i class="fas fa-arrow-right"></i> Ver ofertas</p>
+      </button>
+
+      <button onclick="showView('venues')" class="card p-5 text-left group animate-bounce-in" style="animation-delay: 0.25s;">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-xl text-blue-700 group-hover:scale-110 transition">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Sedes</h3>
+            <p class="text-sm text-gray-500">16 estadios</p>
+          </div>
+        </div>
+        <p class="text-xs text-blue-600 mt-2 font-medium"><i class="fas fa-arrow-right"></i> Explorar</p>
+      </button>
+
+      <button onclick="showView('matches')" class="card p-5 text-left group animate-bounce-in" style="animation-delay: 0.3s;">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-xl text-green-700 group-hover:scale-110 transition">
+            <i class="fas fa-futbol"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Partidos</h3>
+            <p class="text-sm text-gray-500">Calendario</p>
+          </div>
+        </div>
+        <p class="text-xs text-blue-600 mt-2 font-medium"><i class="fas fa-arrow-right"></i> Ver calendario</p>
+      </button>
+
+      <button onclick="showView('profile')" class="card p-5 text-left group animate-bounce-in" style="animation-delay: 0.35s;">
+        <div class="flex items-center gap-4 mb-3">
+          <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-xl text-red-700 group-hover:scale-110 transition">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold">Perfil</h3>
+            <p class="text-sm text-gray-500">Estadísticas</p>
+          </div>
+        </div>
+        <p class="text-xs text-blue-600 mt-2 font-medium"><i class="fas fa-arrow-right"></i> Ver perfil</p>
+      </button>
+    </div>
+
+    <div class="card p-6">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <i class="fas fa-fire text-orange-500"></i> Fichas Destacadas
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3" id="featuredStickers"></div>
+    </div>
+  </div>
+
+  <!-- ALBUM -->
+  <div id="view-album" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-black mb-1">
+          <i class="fas fa-book-open mr-2" style="color: var(--green);"></i> Mi Álbum
+        </h1>
+        <p class="text-gray-500 text-sm">Clic en las fichas para marcarlas</p>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <select id="albumFilter" onchange="renderAlbum()" class="bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500">
+          <option value="all">Todas</option>
+          <option value="owned">Obtenidas</option>
+          <option value="missing">Faltantes</option>
+        </select>
+        <div class="card px-4 py-2 flex items-center gap-2">
+          <span class="font-bold" style="color: var(--green);" id="albumCount">0</span>
+          <span class="text-gray-500 text-sm">/ 144</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card p-4 mb-6">
+      <div class="flex justify-between text-sm mb-2">
+        <span class="text-gray-600 font-medium">Progreso</span>
+        <span class="font-bold" style="color: var(--green);" id="albumPercent">0%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2">
+        <div id="albumProgressBar" class="progress-bar h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <div id="albumGrid"></div>
+  </div>
+
+  <!-- EXCHANGE -->
+  <div id="view-exchange" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-2xl md:text-3xl font-black mb-1">
+      <i class="fas fa-exchange-alt mr-2" style="color: var(--red);"></i> Zona de Intercambios
+    </h1>
+    <p class="text-gray-500 mb-6 text-sm">Encuentra coleccionistas y completa tu álbum</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2">
+        <div class="flex gap-2 mb-4 overflow-x-auto pb-2">
+          <button onclick="filterOffers('all', this)" class="tab-btn active" data-filter="all">Todas</button>
+          <button onclick="filterOffers('recent', this)" class="tab-btn" data-filter="recent">Recientes</button>
+          <button onclick="filterOffers('legend', this)" class="tab-btn" data-filter="legend">Legendarias</button>
+        </div>
+        <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-handshake" style="color: var(--green);"></i> Ofertas Disponibles
+        </h2>
+        <div class="space-y-3" id="exchangeList"></div>
+      </div>
+
+      <div>
+        <div class="card p-5 sticky top-24">
+          <h3 class="text-lg font-bold mb-4" style="color: var(--blue);">
+            <i class="fas fa-plus-circle mr-2"></i> Crear Oferta
+          </h3>
+          <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1 font-medium">Ofrezco:</label>
+            <select id="offerGive" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+              <option>Lionel Messi - Argentina</option>
+              <option>Kylian Mbappé - Francia</option>
+              <option>Vinícius Jr. - Brasil</option>
+              <option>Erling Haaland - Noruega</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1 font-medium">Busco:</label>
+            <select id="offerWant" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+              <option>Cristiano Ronaldo - Portugal</option>
+              <option>Erling Haaland - Noruega</option>
+              <option>Jude Bellingham - Inglaterra</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1 font-medium">Mensaje:</label>
+            <textarea id="offerMessage" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm h-20 resize-none focus:outline-none focus:border-blue-500" placeholder="Describe tu oferta..."></textarea>
+          </div>
+          <button onclick="createOffer()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm">
+            <i class="fas fa-paper-plane mr-2"></i> Publicar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PENDING -->
+  <div id="view-pending" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-black mb-1">
+          <i class="fas fa-clock mr-2" style="color: #f59e0b;"></i> Intercambios Pendientes
+        </h1>
+        <p class="text-gray-500 text-sm">Gestiona tus propuestas</p>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <div class="card px-4 py-2 flex items-center gap-2">
+          <i class="fas fa-hourglass-half text-yellow-500"></i>
+          <span class="font-bold text-yellow-600" id="pendingTotal">0</span>
+          <span class="text-gray-500 text-sm">pendientes</span>
+        </div>
+        <div class="card px-4 py-2 flex items-center gap-2">
+          <i class="fas fa-check-circle text-green-600"></i>
+          <span class="font-bold text-green-600" id="completedTotal">0</span>
+          <span class="text-gray-500 text-sm">completados</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+      <button onclick="filterPending('all', this)" class="tab-btn active" data-pending-filter="all">Todos</button>
+      <button onclick="filterPending('pending', this)" class="tab-btn" data-pending-filter="pending">Pendientes</button>
+      <button onclick="filterPending('accepted', this)" class="tab-btn" data-pending-filter="accepted">Aceptados</button>
+      <button onclick="filterPending('rejected', this)" class="tab-btn" data-pending-filter="rejected">Rechazados</button>
+      <button onclick="filterPending('completed', this)" class="tab-btn" data-pending-filter="completed">Completados</button>
+      <button onclick="filterPending('sent', this)" class="tab-btn" data-pending-filter="sent">Enviados</button>
+    </div>
+
+    <div id="pendingEmpty" class="hidden text-center py-16">
+      <div class="text-5xl mb-3"></div>
+      <h3 class="text-lg font-bold text-gray-500 mb-2">Sin intercambios</h3>
+      <p class="text-gray-400 text-sm mb-5">Cuando propongas o recibas una oferta, aparecerá aquí</p>
+      <button onclick="showView('exchange')" class="btn-primary px-6 py-2 rounded-lg font-bold text-sm">
+        <i class="fas fa-search mr-2"></i> Buscar Intercambios
+      </button>
+    </div>
+
+    <div class="space-y-3" id="pendingList"></div>
+
+    <div class="card p-6 mt-6">
+      <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+        <i class="fas fa-chart-pie" style="color: var(--blue);"></i> Resumen
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="rounded-lg p-4 text-center border border-yellow-200 bg-yellow-50">
+          <div class="text-2xl font-black text-yellow-600" id="sumPending">0</div>
+          <div class="text-xs text-gray-600 font-medium">Pendientes</div>
+        </div>
+        <div class="rounded-lg p-4 text-center border border-green-200 bg-green-50">
+          <div class="text-2xl font-black text-green-600" id="sumAccepted">0</div>
+          <div class="text-xs text-gray-600 font-medium">Aceptados</div>
+        </div>
+        <div class="rounded-lg p-4 text-center border border-red-200 bg-red-50">
+          <div class="text-2xl font-black text-red-600" id="sumRejected">0</div>
+          <div class="text-xs text-gray-600 font-medium">Rechazados</div>
+        </div>
+        <div class="rounded-lg p-4 text-center border border-blue-200 bg-blue-50">
+          <div class="text-2xl font-black text-blue-600" id="sumCompleted">0</div>
+          <div class="text-xs text-gray-600 font-medium">Completados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENUES -->
+  <div id="view-venues" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <div class="text-center mb-6 animate-fade">
+      <h1 class="text-3xl md:text-4xl font-black mb-2">
+        Sedes del Mundial 2026
+      </h1>
+      <p class="text-gray-500">16 estadios en 3 países: México, Estados Unidos y Canadá</p>
+    </div>
+
+    <div class="flex gap-2 mb-6 overflow-x-auto pb-2 justify-center flex-wrap">
+      <button onclick="filterVenues('all', this)" class="tab-btn active" data-venue-filter="all">Todos</button>
+      <button onclick="filterVenues('mexico', this)" class="tab-btn" data-venue-filter="mexico">🇽 México</button>
+      <button onclick="filterVenues('usa', this)" class="tab-btn" data-venue-filter="usa">🇸 USA</button>
+      <button onclick="filterVenues('canada', this)" class="tab-btn" data-venue-filter="canada">🇨🇦 Canadá</button>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 mb-6">
+      <div class="card p-4 text-center">
+        <div class="text-2xl mb-1">🇲🇽</div>
+        <div class="text-2xl font-black text-green-600">3</div>
+        <div class="text-xs text-gray-500">Estadios</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl mb-1">🇸</div>
+        <div class="text-2xl font-black text-blue-600">11</div>
+        <div class="text-xs text-gray-500">Estadios</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl mb-1">🇨🇦</div>
+        <div class="text-2xl font-black text-red-600">2</div>
+        <div class="text-xs text-gray-500">Estadios</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="venuesGrid"></div>
+
+    <div class="card p-6 mt-6">
+      <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+        <i class="fas fa-info-circle" style="color: var(--blue);"></i> Datos del Mundial
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+          <div class="text-lg mb-1">📅</div>
+          <div class="font-bold text-sm">11 Jun - 19 Jul</div>
+          <div class="text-xs text-gray-500">Duración</div>
+        </div>
+        <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+          <div class="text-lg mb-1">⚽</div>
+          <div class="font-bold text-sm">104 Partidos</div>
+          <div class="text-xs text-gray-500">En total</div>
+        </div>
+        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+          <div class="text-lg mb-1">🌎</div>
+          <div class="font-bold text-sm">48 Selecciones</div>
+          <div class="text-xs text-gray-500">Participantes</div>
+        </div>
+        <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+          <div class="text-lg mb-1">🏆</div>
+          <div class="font-bold text-sm">Final en NY</div>
+          <div class="text-xs text-gray-500">MetLife Stadium</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEED -->
+  <div id="view-feed" class="view-section hidden-view max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl md:text-3xl font-black mb-5">
+      <i class="fas fa-newspaper mr-2" style="color: var(--blue);"></i> Feed
+    </h1>
+
+    <div class="card p-5 mb-5">
+      <div class="flex gap-3 mb-3">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white" id="feedAvatar">U</div>
+        <textarea id="feedText" class="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-3 text-sm resize-none h-20 focus:outline-none focus:border-blue-500" placeholder="¿Qué ficha conseguiste hoy?"></textarea>
+      </div>
+      <div class="flex justify-between items-center flex-wrap gap-2">
+        <div class="flex gap-2 flex-wrap">
+          <button onclick="attachPhoto()" class="btn-outline px-3 py-1.5 rounded-lg text-sm">
+            <i class="fas fa-image mr-1"></i> Foto
+          </button>
+          <button onclick="attachSticker()" class="btn-outline px-3 py-1.5 rounded-lg text-sm">
+            <i class="fas fa-sticky-note mr-1"></i> Ficha
+          </button>
+          <button onclick="attachLocation()" class="btn-outline px-3 py-1.5 rounded-lg text-sm">
+            <i class="fas fa-map-marker-alt mr-1"></i> Ubicación
+          </button>
+        </div>
+        <button onclick="createPost()" class="btn-primary px-5 py-1.5 rounded-lg font-bold text-sm">
+          <i class="fas fa-paper-plane mr-1"></i> Publicar
+        </button>
+      </div>
+    </div>
+
+    <div class="space-y-3" id="feedList"></div>
+  </div>
+
+  <!-- MATCHES -->
+  <div id="view-matches" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-2xl md:text-3xl font-black mb-1">
+      <i class="fas fa-futbol mr-2" style="color: var(--green);"></i> Partidos del Mundial 2026
+    </h1>
+    <p class="text-gray-500 mb-5 text-sm">Calendario oficial</p>
+
+    <div class="flex gap-2 mb-5 overflow-x-auto pb-2" id="matchFilters">
+      <button onclick="filterMatches('all', this)" class="btn-primary px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap" data-filter="all">Todos</button>
+      <button onclick="filterMatches('group', this)" class="btn-outline px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap" data-filter="group">Grupos</button>
+      <button onclick="filterMatches('round16', this)" class="btn-outline px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap" data-filter="round16">Octavos</button>
+      <button onclick="filterMatches('quarter', this)" class="btn-outline px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap" data-filter="quarter">Cuartos</button>
+      <button onclick="filterMatches('semi', this)" class="btn-outline px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap" data-filter="semi">Semis</button>
+      <button onclick="filterMatches('final', this)" class="btn-outline px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap" data-filter="final">Final</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="matchesList"></div>
+  </div>
+
+  <!-- CHAT -->
+  <div id="view-chat" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-2xl md:text-3xl font-black mb-5">
+      <i class="fas fa-comments mr-2" style="color: var(--blue);"></i> Chat
+    </h1>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[600px]">
+      <div class="card p-4 overflow-y-auto">
+        <div class="flex justify-between items-center mb-3">
+          <h3 class="font-bold text-sm">Contactos</h3>
+          <button onclick="openNewChat()" class="btn-primary px-3 py-1 rounded-lg text-xs">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <div class="space-y-1" id="chatContacts"></div>
+      </div>
+      <div class="lg:col-span-2 card flex flex-col">
+        <div class="p-4 border-b border-gray-200 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white" id="chatPartnerAvatar">C</div>
+          <div class="flex-1">
+            <div class="font-bold text-sm" id="chatPartnerName">Carlos_99</div>
+            <div class="text-xs text-green-600 font-medium">● En línea</div>
+          </div>
+          <button onclick="openChatOptions()" class="text-gray-400 hover:text-gray-600">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+        </div>
+        <div class="flex-1 p-4 overflow-y-auto space-y-2 bg-gray-50" id="chatMessages"></div>
+        <div class="p-3 border-t border-gray-200 flex gap-2">
+          <button onclick="attachEmoji()" class="btn-outline px-3 py-2 rounded-lg">
+            <i class="far fa-smile"></i>
+          </button>
+          <input type="text" id="chatInput" placeholder="Escribe un mensaje..." 
+            class="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500"
+            onkeypress="if(event.key==='Enter') sendMessage()">
+          <button onclick="sendMessage()" class="btn-primary px-4 py-2 rounded-lg font-bold">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div id="view-profile" class="view-section hidden-view max-w-7xl mx-auto px-4 py-8">
+    <div class="card p-6 mb-5">
+      <div class="flex flex-col md:flex-row items-center gap-5">
+        <div class="w-28 h-28 rounded-full bg-gradient-to-br from-blue-600 via-red-600 to-green-600 p-1">
+          <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-4xl font-black text-blue-700" id="profileAvatar">U</div>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h1 class="text-2xl font-black mb-1" id="profileName">Usuario</h1>
+          <p class="text-blue-600 mb-1 font-medium text-sm">@coleccionista2026</p>
+          <p class="text-gray-500 text-sm mb-3">Coleccionista Oro | Miembro desde 2026</p>
+          <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+            <button onclick="editProfile()" class="btn-primary px-4 py-1.5 rounded-lg font-bold text-sm">
+              <i class="fas fa-edit mr-1"></i> Editar
+            </button>
+            <button onclick="shareProfile()" class="btn-outline px-4 py-1.5 rounded-lg font-bold text-sm">
+              <i class="fas fa-share-alt mr-1"></i> Compartir
+            </button>
+            <button onclick="viewMyAlbum()" class="btn-green px-4 py-1.5 rounded-lg font-bold text-sm">
+              <i class="fas fa-book mr-1"></i> Álbum
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+      <div class="card p-4 text-center">
+        <div class="stat-ring mx-auto mb-2">
+          <svg width="100" height="100">
+            <circle class="bg-ring" cx="50" cy="50" r="42"></circle>
+            <circle class="progress-ring" cx="50" cy="50" r="42" 
+              stroke-dasharray="264" stroke-dashoffset="264" id="profileRing"></circle>
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-xl font-black text-green-600" id="profilePercent">0%</span>
+          </div>
+        </div>
+        <div class="text-xs text-gray-500 font-medium">Álbum</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-black text-red-600 mb-1" id="profileTrades">0</div>
+        <div class="text-xs text-gray-500 font-medium">Intercambios</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-black text-yellow-600 mb-1" id="profilePosts">24</div>
+        <div class="text-xs text-gray-500 font-medium">Publicaciones</div>
+      </div>
+      <div class="card p-4 text-center">
+        <div class="text-2xl font-black text-blue-600 mb-1" id="profileFriends">48</div>
+        <div class="text-xs text-gray-500 font-medium">Amigos</div>
+      </div>
+    </div>
+
+    <div class="card p-5 mb-5">
+      <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+        <i class="fas fa-trophy text-yellow-500"></i> Logros
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <button onclick="showAchievement('Primer Intercambio', '¡Realizaste tu primer intercambio!')" class="text-center p-4 rounded-lg border border-yellow-200 bg-yellow-50 hover:scale-105 transition cursor-pointer">
+          <i class="fas fa-medal text-3xl text-yellow-500 mb-2"></i>
+          <div class="font-bold text-sm">Primer Intercambio</div>
+          <div class="text-xs text-gray-500 mt-1">Desbloqueado</div>
+        </button>
+        <button onclick="showAchievement('10 Fichas', '¡Conseguiste 10 fichas!')" class="text-center p-4 rounded-lg border border-green-200 bg-green-50 hover:scale-105 transition cursor-pointer">
+          <i class="fas fa-star text-3xl text-green-600 mb-2"></i>
+          <div class="font-bold text-sm">10 Fichas</div>
+          <div class="text-xs text-gray-500 mt-1">Desbloqueado</div>
+        </button>
+        <button onclick="showAchievement('Álbum Completo', '¡Completa todas las fichas!')" class="text-center p-4 rounded-lg border border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed">
+          <i class="fas fa-crown text-3xl text-gray-400 mb-2"></i>
+          <div class="font-bold text-sm text-gray-600">Álbum Completo</div>
+          <div class="text-xs text-gray-500 mt-1">Bloqueado</div>
+        </button>
+        <button onclick="showAchievement('Racha 7 días', '¡7 días seguidos!')" class="text-center p-4 rounded-lg border border-red-200 bg-red-50 hover:scale-105 transition cursor-pointer">
+          <i class="fas fa-fire text-3xl text-red-600 mb-2"></i>
+          <div class="font-bold text-sm">Racha 7 días</div>
+          <div class="text-xs text-gray-500 mt-1">Desbloqueado</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="card p-5">
+      <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+        <i class="fas fa-images" style="color: var(--blue);"></i> Mis Fichas
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" id="profileStickers"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toastContainer" class="fixed top-20 right-4 z-[2000] space-y-2"></div>
+<div id="modalContainer"></div>
+
+<script>
+const teamList = [
+  ["México", "🇲🇽", ["G. Ochoa", "H. Lozano", "E. Álvarez"]],
+  ["Alemania", "🇩🇪", ["M. Neuer", "J. Musiala", "K. Havertz"]],
+  ["Argentina", "🇦🇷", ["L. Messi", "E. Martínez", "J. Álvarez"]],
+  ["Brasil", "🇧", ["Vinícius Jr.", "Alisson", "Rodrygo"]],
+  ["Francia", "🇫🇷", ["K. Mbappé", "A. Griezmann", "M. Thuram"]],
+  ["España", "🇸", ["Pedri", "Gavi", "Rodri"]],
+  ["Inglaterra", "🏴󠁧󠁥󠁮󠁿", ["H. Kane", "J. Bellingham", "B. Saka"]],
+  ["Portugal", "🇵", ["C. Ronaldo", "B. Fernandes", "R. Dias"]],
+  ["Países Bajos", "🇳🇱", ["V. van Dijk", "M. de Ligt", "F. de Jong"]],
+  ["Italia", "🇮🇹", ["G. Donnarumma", "F. Chiesa", "N. Barella"]],
+  ["Uruguay", "🇺🇾", ["D. Núñez", "F. Valverde", "R. Bentancur"]],
+  ["Colombia", "🇴", ["J. Rodríguez", "L. Díaz", "D. Zapata"]],
+  ["Estados Unidos", "🇺🇸", ["C. Pulisic", "C. McKennie", "G. Reyna"]],
+  ["Canadá", "🇨🇦", ["A. Davies", "J. David", "M. Johnston"]],
+  ["Japón", "🇵", ["T. Kubo", "W. Endo", "T. Minamino"]],
+  ["Corea del Sur", "🇷", ["H. Son", "H. Hwang", "K. Lee"]],
+  ["Marruecos", "🇲🇦", ["H. Ziyech", "A. Hakimi", "Y. Bono"]],
+  ["Senegal", "🇸", ["S. Mané", "E. Mendy", "I. Sarr"]],
+  ["Nigeria", "🇳🇬", ["V. Osimhen", "A. Lookman", "W. Ndidi"]],
+  ["Ghana", "🇬🇭", ["M. Kudus", "T. Partey", "J. Ayew"]],
+  ["Ecuador", "🇨", ["M. Caicedo", "E. Valencia", "P. Hincapié"]],
+  ["Chile", "🇨🇱", ["A. Sánchez", "C. Bravo", "B. Osorio"]],
+  ["Perú", "🇵🇪", ["P. Guerrero", "A. Carrillo", "S. Roca"]],
+  ["Costa Rica", "🇨🇷", ["K. Navas", "J. Campbell", "C. Borges"]],
+  ["Australia", "🇦", ["M. Ryan", "M. Leckie", "M. Duke"]],
+  ["Suiza", "🇨🇭", ["Y. Sommer", "G. Xhaka", "B. Embolo"]],
+  ["Dinamarca", "🇩🇰", ["K. Schmeichel", "C. Eriksen", "R. Højlund"]],
+  ["Croacia", "🇭🇷", ["L. Modrić", "M. Kovačić", "J. Gvardiol"]],
+  ["Bélgica", "🇧🇪", ["T. Courtois", "K. De Bruyne", "R. Lukaku"]],
+  ["Serbia", "🇷🇸", ["V. Milinković", "D. Vlahović", "S. Milinković-Savić"]],
+  ["Polonia", "🇵", ["W. Szczęsny", "P. Zieliński", "R. Lewandowski"]],
+  ["Austria", "🇦🇹", ["D. Alaba", "M. Arnautović", "K. Laimer"]],
+  ["Gales", "🏴󠁢󠁷󠁳󠁿", ["G. Bale", "A. Ramsey", "J. James"]],
+  ["Suecia", "🇪", ["V. Lindelöf", "E. Forsberg", "A. Isak"]],
+  ["Noruega", "🇴", ["E. Haaland", "M. Ødegaard", "A. Sørloth"]],
+  ["Escocia", "󠁧󠁢󠁣󠁴", ["A. Robertson", "J. McGinn", "C. Adams"]],
+  ["Irán", "🇮🇷", ["M. Taremi", "S. Azmoun", "A. Jahanbakhsh"]],
+  ["Arabia Saudita", "🇸🇦", ["S. Al-Dawsari", "S. Al-Faraj", "Y. Al-Bulaihi"]],
+  ["Catar", "🇶🇦", ["A. Afif", "H. Al-Haydos", "B. Khoukhi"]],
+  ["Emiratos Árabes", "🇦🇪", ["A. Mabkhout", "K. Mohamed", "A. Harib"]],
+  ["Túnez", "🇹🇳", ["W. Khazri", "E. Skhiri", "A. Abdi"]],
+  ["Argelia", "🇿", ["R. Mahrez", "I. Bennacer", "R. Aït Nouri"]],
+  ["Egipto", "🇬", ["M. Salah", "M. Elneny", "A. Hegazy"]],
+  ["Camerún", "🇨🇲", ["A. Onana", "V. Osimhen", "A. Zambo"]],
+  ["Costa de Marfil", "🇮", ["S. Haller", "F. Kessié", "W. Zaha"]],
+  ["Mali", "🇲🇱", ["Y. Coulibaly", "A. Haidara", "I. Diabaté"]],
+  ["Sudáfrica", "🇦", ["T. Lyle", "P. Zwane", "L. Mothiba"]],
+  ["Nueva Zelanda", "🇿", ["C. Wood", "S. Thomas", "W. Reid"]]
+];
+
+const albumGroups = [];
+for (let i = 0; i < 12; i++) {
+  const groupName = `Grupo ${String.fromCharCode(65 + i)}`;
+  const teams = [];
+  for (let j = 0; j < 4; j++) {
+    const teamData = teamList[i * 4 + j];
+    if (!teamData) continue;
+    const players = teamData[2].map((name, idx) => ({
+      id: i * 12 + j * 3 + idx + 1,
+      name: name,
+      pos: idx === 0 ? "POR" : (idx === 1 ? "DEF" : (idx === 2 ? "MED" : "DEL")),
+      num: Math.floor(Math.random() * 30) + 1
+    }));
+    teams.push({ country: teamData[0], flag: teamData[1], players });
+  }
+  albumGroups.push({ groupName, teams });
+}
+
+const venuesData = [
+  {id: 1, name: "Estadio Azteca", city: "Ciudad de México", country: "mexico", capacity: "87,000", matches: 10, image: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=800&auto=format&fit=crop", description: "Templo del fútbol mexicano, sede de la inauguración"},
+  {id: 2, name: "Estadio Akron", city: "Guadalajara", country: "mexico", capacity: "49,850", matches: 7, image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800&auto=format&fit=crop", description: "Moderno estadio con techo retráctil"},
+  {id: 3, name: "Estadio BBVA", city: "Monterrey", country: "mexico", capacity: "53,500", matches: 7, image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&auto=format&fit=crop", description: "Estadio con vista a la Sierra Madre"},
+  {id: 4, name: "MetLife Stadium", city: "Nueva York", country: "usa", capacity: "82,500", matches: 8, image: "https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=800&auto=format&fit=crop", description: "Sede de la FINAL del Mundial 2026"},
+  {id: 5, name: "AT&T Stadium", city: "Dallas", country: "usa", capacity: "80,000", matches: 7, image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&auto=format&fit=crop", description: "Uno de los estadios más grandes de la NFL"},
+  {id: 6, name: "SoFi Stadium", city: "Los Ángeles", country: "usa", capacity: "70,240", matches: 7, image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&auto=format&fit=crop", description: "Estadio techado de última generación"},
+  {id: 7, name: "NRG Stadium", city: "Houston", country: "usa", capacity: "72,220", matches: 7, image: "https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=800&auto=format&fit=crop", description: "Primer estadio techado de la NFL"},
+  {id: 8, name: "Mercedes-Benz Stadium", city: "Atlanta", country: "usa", capacity: "71,000", matches: 7, image: "https://images.unsplash.com/photo-1518605368461-1e1e38ce8ba9?w=800&auto=format&fit=crop", description: "Estadio con techo retráctil"},
+  {id: 9, name: "Gillette Stadium", city: "Boston", country: "usa", capacity: "65,878", matches: 7, image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&auto=format&fit=crop", description: "Casa de los New England Patriots"},
+  {id: 10, name: "Lincoln Financial Field", city: "Filadelfia", country: "usa", capacity: "69,796", matches: 7, image: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=800&auto=format&fit=crop", description: "Conocido como 'The Linc'"},
+  {id: 11, name: "Lumen Field", city: "Seattle", country: "usa", capacity: "68,740", matches: 7, image: "https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?w=800&auto=format&fit=crop", description: "Estadio al aire libre"},
+  {id: 12, name: "Arrowhead Stadium", city: "Kansas City", country: "usa", capacity: "76,416", matches: 7, image: "https://images.unsplash.com/photo-1504454136310-8a90f4c6203c?w=800&auto=format&fit=crop", description: "Estadio más ruidoso del mundo"},
+  {id: 13, name: "Levi's Stadium", city: "San Francisco", country: "usa", capacity: "68,500", matches: 7, image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&auto=format&fit=crop", description: "Estadio sustentable en Silicon Valley"},
+  {id: 14, name: "Hard Rock Stadium", city: "Miami", country: "usa", capacity: "65,326", matches: 7, image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&auto=format&fit=crop", description: "Estadio con techo parcial en Miami"},
+  {id: 15, name: "BC Place", city: "Vancouver", country: "canada", capacity: "54,500", matches: 7, image: "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800&auto=format&fit=crop", description: "Estadio con techo retráctil"},
+  {id: 16, name: "BMO Field", city: "Toronto", country: "canada", capacity: "45,500", matches: 7, image: "https://images.unsplash.com/photo-1518605368461-1e1e38ce8ba9?w=800&auto=format&fit=crop", description: "Estadio expandible en Toronto"}
+];
+
+const feedData = [
+  {id: 1, user: "Carlos_99", avatar: "C", action: "consiguió", sticker: "Lionel Messi", time: "hace 5 min", likes: 24, comments: 8, liked: false, stickerImg: true},
+  {id: 2, user: "MariaFutbol", avatar: "M", action: "busca intercambiar", sticker: "Kylian Mbappé", time: "hace 15 min", likes: 12, comments: 3, liked: false, stickerImg: true},
+  {id: 3, user: "JuanGol", avatar: "J", action: "completó la sección de", sticker: "Porteros", time: "hace 1 hora", likes: 45, comments: 12, liked: false, stickerImg: false},
+  {id: 4, user: "AnaCromo", avatar: "A", action: "subió una nueva ficha", sticker: "Vinícius Jr.", time: "hace 2 horas", likes: 18, comments: 5, liked: false, stickerImg: true},
+];
+
+const matchesData = [
+  {id: 1, team1: "México", flag1: "🇲🇽", team2: "Alemania", flag2: "🇩", date: "11 Jun 2026", time: "15:00", stadium: "Estadio Azteca", group: "Grupo A", phase: "group", reminded: false},
+  {id: 2, team1: "Argentina", flag1: "🇦🇷", team2: "Francia", flag2: "🇫🇷", date: "12 Jun 2026", time: "20:00", stadium: "MetLife Stadium", group: "Grupo B", phase: "group", reminded: false},
+  {id: 3, team1: "Brasil", flag1: "🇧🇷", team2: "España", flag2: "🇪🇸", date: "13 Jun 2026", time: "18:00", stadium: "SoFi Stadium", group: "Grupo C", phase: "group", reminded: false},
+  {id: 4, team1: "Inglaterra", flag1: "󠁧󠁢󠁮󠁧", team2: "Italia", flag2: "🇮🇹", date: "14 Jun 2026", time: "16:00", stadium: "AT&T Stadium", group: "Grupo D", phase: "group", reminded: false},
+  {id: 5, team1: "Portugal", flag1: "🇹", team2: "Países Bajos", flag2: "🇳🇱", date: "15 Jun 2026", time: "19:00", stadium: "BMO Field", group: "Grupo E", phase: "round16", reminded: false},
+  {id: 6, team1: "Bélgica", flag1: "🇧🇪", team2: "Croacia", flag2: "🇭🇷", date: "16 Jun 2026", time: "14:00", stadium: "BC Place", group: "Grupo F", phase: "round16", reminded: false},
+  {id: 7, team1: "Uruguay", flag1: "🇺🇾", team2: "Colombia", flag2: "🇨🇴", date: "20 Jun 2026", time: "21:00", stadium: "NRG Stadium", group: "Cuartos", phase: "quarter", reminded: false},
+  {id: 8, team1: "TBD", flag1: "❓", team2: "TBD", flag2: "❓", date: "25 Jun 2026", time: "20:00", stadium: "MetLife Stadium", group: "Semifinal", phase: "semi", reminded: false},
+  {id: 9, team1: "TBD", flag1: "❓", team2: "TBD", flag2: "❓", date: "30 Jun 2026", time: "18:00", stadium: "MetLife Stadium", group: "Final", phase: "final", reminded: false},
+];
+
+const chatContacts = [
+  {id: 1, name: "Carlos_99", avatar: "C", lastMsg: "¿Tienes la ficha de Messi?", time: "10:30", unread: 2, online: true},
+  {id: 2, name: "MariaFutbol", avatar: "M", lastMsg: "Te cambio la de Mbappé", time: "09:15", unread: 1, online: true},
+  {id: 3, name: "JuanGol", avatar: "J", lastMsg: "¡Gracias por el intercambio!", time: "Ayer", unread: 0, online: false},
+  {id: 4, name: "AnaCromo", avatar: "A", lastMsg: "¿Vienes al partido?", time: "Ayer", unread: 0, online: true},
+];
+
+const chatMessages = [
+  {from: "other", text: "¡Hola! ¿Tienes la ficha de Messi?", time: "10:28"},
+  {from: "me", text: "¡Sí! La tengo duplicada", time: "10:29"},
+  {from: "other", text: "¿Me la cambias por la de Mbappé?", time: "10:30"},
+  {from: "me", text: "¡Trato hecho! Nos vemos en el punto de intercambio", time: "10:31"},
+];
+
+const stickerImgUrl = 'https://image.qwenlm.ai/public_source/7e894e1a-5d8e-41a3-a0e4-4f279b4ddc68/123df258b-afdd-45db-a3c1-8570f8e00e9e.png';
+
+let appState = {
+  currentView: 'intro',
+  currentUser: null,
+  ownedStickers: new Set([1, 5, 13, 18, 24, 30, 45]),
+  currentChatPartner: 0,
+  currentMatchFilter: 'all',
+  currentOfferFilter: 'all',
+  currentPendingFilter: 'all',
+  currentVenueFilter: 'all',
+  postAttachments: [],
+  pendingTrades: [
+    {id: 1, from: "Carlos_99", fromAvatar: "C", to: "Yo", toAvatar: "U", gives: "Lionel Messi - Argentina", wants: "Kylian Mbappé - Francia", message: "¡Hola! Tengo la de Messi duplicada", status: "pending", direction: "received", createdAt: "hace 10 min", updatedAt: "hace 10 min"},
+    {id: 2, from: "Yo", fromAvatar: "U", to: "MariaFutbol", toAvatar: "M", gives: "Vinícius Jr. - Brasil", wants: "Jude Bellingham - Inglaterra", message: "Te cambio la de Vinícius", status: "pending", direction: "sent", createdAt: "hace 30 min", updatedAt: "hace 30 min"},
+    {id: 3, from: "JuanGol", fromAvatar: "J", to: "Yo", toAvatar: "U", gives: "Erling Haaland - Noruega", wants: "Cristiano Ronaldo - Portugal", message: "¿Tienes la de CR7?", status: "accepted", direction: "received", createdAt: "hace 1 hora", updatedAt: "hace 30 min"},
+    {id: 4, from: "AnaCromo", fromAvatar: "A", to: "Yo", toAvatar: "U", gives: "Kevin De Bruyne - Bélgica", wants: "Luka Modrić - Croacia", message: "Intercambio clásico", status: "rejected", direction: "received", createdAt: "hace 2 horas", updatedAt: "hace 1 hora"},
+    {id: 5, from: "Yo", fromAvatar: "U", to: "PedroFutbol", toAvatar: "P", gives: "Pedri - España", wants: "Gavi - España", message: "Necesito la de Gavi", status: "completed", direction: "sent", createdAt: "hace 1 día", updatedAt: "hace 20 horas"}
+  ]
+};
+
+function showToast(message, type = 'success', duration = 3000) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  const icons = { success: 'check-circle', error: 'times-circle', warning: 'exclamation-triangle', info: 'info-circle' };
+  const colors = { success: 'var(--green)', error: 'var(--red)', warning: '#f59e0b', info: 'var(--blue)' };
+  toast.innerHTML = `
+    <div class="flex items-center gap-3">
+      <i class="fas fa-${icons[type]} text-lg" style="color: ${colors[type]};"></i>
+      <div class="flex-1 text-sm font-medium">${message}</div>
+      <button onclick="this.parentElement.parentElement.remove()" class="text-gray-400 hover:text-gray-600">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  `;
+  container.appendChild(toast);
+  setTimeout(() => {
+    if (toast.parentElement) {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(100px)';
+      toast.style.transition = 'all 0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }
+  }, duration);
+}
+
+function openModal(title, content) {
+  document.getElementById('modalContainer').innerHTML = `
+    <div class="modal-overlay" onclick="if(event.target===this) closeModal()">
+      <div class="modal-content">
+        <div class="p-5 border-b border-gray-200 flex justify-between items-center">
+          <h3 class="text-lg font-bold">${title}</h3>
+          <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="p-5">${content}</div>
+      </div>
+    </div>
+  `;
+}
+
+function closeModal() {
+  document.getElementById('modalContainer').innerHTML = '';
+}
+
+function goToLogin() {
+  const intro = document.getElementById('introOverlay');
+  intro.style.opacity = '0';
+  intro.style.transition = 'opacity 0.5s ease';
+  setTimeout(() => {
+    intro.classList.add('hidden-view');
+    const login = document.getElementById('loginView');
+    login.classList.remove('hidden-view');
+  }, 500);
+}
+
+function showIntroInfo() {
+  openModal('ℹ️ Sobre MundialSwap 2026', `
+    <div class="space-y-3">
+      <p class="text-sm text-gray-600">Plataforma oficial de intercambio de fichas del Mundial FIFA 2026.</p>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="p-3 rounded-lg bg-green-50 border border-green-200">
+          <i class="fas fa-book text-green-600 text-xl mb-1"></i>
+          <div class="font-bold text-sm">144 Fichas</div>
+          <div class="text-xs text-gray-500">48 equipos</div>
+        </div>
+        <div class="p-3 rounded-lg bg-red-50 border border-red-200">
+          <i class="fas fa-exchange-alt text-red-600 text-xl mb-1"></i>
+          <div class="font-bold text-sm">Intercambios</div>
+          <div class="text-xs text-gray-500">En tiempo real</div>
+        </div>
+        <div class="p-3 rounded-lg bg-yellow-50 border border-yellow-200">
+          <i class="fas fa-trophy text-yellow-600 text-xl mb-1"></i>
+          <div class="font-bold text-sm">Logros</div>
+          <div class="text-xs text-gray-500">Desbloqueables</div>
+        </div>
+        <div class="p-3 rounded-lg bg-blue-50 border border-blue-200">
+          <i class="fas fa-comments text-blue-600 text-xl mb-1"></i>
+          <div class="font-bold text-sm">Chat</div>
+          <div class="text-xs text-gray-500">Comunicación</div>
+        </div>
+      </div>
+      <button onclick="closeModal()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm mt-3">Entendido</button>
+    </div>
+  `);
+}
+
+function showForgotPassword() {
+  openModal('🔒 Recuperar Contraseña', `
+    <div class="space-y-3">
+      <p class="text-sm text-gray-600">Ingresa tu email para recibir un enlace de recuperación.</p>
+      <input type="email" id="recoverEmail" placeholder="tu@email.com" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500">
+      <button onclick="sendRecovery()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm">
+        <i class="fas fa-envelope mr-2"></i> Enviar Enlace
+      </button>
+    </div>
+  `);
+}
+
+function sendRecovery() {
+  const email = document.getElementById('recoverEmail').value;
+  if (!email) { showToast('Ingresa un email válido', 'warning'); return; }
+  closeModal();
+  showToast('Enlace enviado a ' + email, 'success');
+}
+
+function showRegister() {
+  openModal('📝 Crear Cuenta', `
+    <div class="space-y-3">
+      <input type="text" id="regUser" placeholder="Usuario" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500">
+      <input type="email" id="regEmail" placeholder="Email" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500">
+      <input type="password" id="regPass" placeholder="Contraseña" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-blue-500">
+      <button onclick="doRegister()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm">
+        <i class="fas fa-user-plus mr-2"></i> Registrarse
+      </button>
+    </div>
+  `);
+}
+
+function doRegister() {
+  const user = document.getElementById('regUser').value;
+  const email = document.getElementById('regEmail').value;
+  const pass = document.getElementById('regPass').value;
+  if (!user || !email || !pass) { showToast('Completa todos los campos', 'warning'); return; }
+  closeModal();
+  document.getElementById('loginUser').value = user;
+  showToast('¡Cuenta creada! Inicia sesión', 'success');
+}
+
+function socialLogin(provider) {
+  showToast(`Iniciando con ${provider}...`, 'info');
+  setTimeout(() => {
+    document.getElementById('loginUser').value = 'User_' + provider;
+    doLogin();
+  }, 800);
+}
+
+function doLogin() {
+  const username = document.getElementById('loginUser').value.trim() || 'Coleccionista';
+  appState.currentUser = username;
+  
+  document.getElementById('navUsername').textContent = username;
+  document.getElementById('navAvatar').textContent = username.charAt(0).toUpperCase();
+  document.getElementById('feedAvatar').textContent = username.charAt(0).toUpperCase();
+  document.getElementById('profileName').textContent = username;
+  document.getElementById('profileAvatar').textContent = username.charAt(0).toUpperCase();
+  
+  document.getElementById('loginView').classList.add('hidden-view');
+  document.getElementById('mainApp').classList.remove('hidden-view');
+  
+  showView('home');
+  updateStats();
+  renderFeatured();
+  renderAlbum();
+  renderExchange();
+  renderPendingTrades();
+  renderVenues();
+  renderFeed();
+  renderMatches();
+  renderChatContacts();
+  renderChatMessages();
+  renderProfileStickers();
+  
+  showToast(`¡Bienvenido ${username}!`, 'success');
+}
+
+function doLogout() {
+  openModal('👋 Cerrar Sesión', `
+    <div class="text-center space-y-3">
+      <i class="fas fa-sign-out-alt text-4xl text-red-500"></i>
+      <p class="text-gray-700 font-medium">¿Seguro que deseas salir?</p>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="confirmLogout()" class="btn-red flex-1 py-2 rounded-lg font-bold text-sm">Salir</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmLogout() {
+  closeModal();
+  appState.currentUser = null;
+  document.getElementById('mainApp').classList.add('hidden-view');
+  document.getElementById('loginView').classList.remove('hidden-view');
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+  showToast('Sesión cerrada', 'info');
+}
+
+function showView(viewName) {
+  document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden-view'));
+  document.getElementById('view-' + viewName).classList.remove('hidden-view');
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll(`[data-nav="${viewName}"]`).forEach(el => el.classList.add('active'));
+  appState.currentView = viewName;
+  window.scrollTo(0, 0);
+  if (viewName === 'album') renderAlbum();
+  if (viewName === 'profile') renderProfileStickers();
+  if (viewName === 'pending') renderPendingTrades();
+  if (viewName === 'venues') renderVenues();
+}
+
+function updateStats() {
+  const owned = appState.ownedStickers.size;
+  const total = 144;
+  const missing = total - owned;
+  const percent = Math.round((owned / total) * 100);
+  const pendingCount = appState.pendingTrades.filter(t => t.status === 'pending').length;
+  
+  document.getElementById('statOwned').textContent = owned;
+  document.getElementById('statMissing').textContent = missing;
+  document.getElementById('statTrades').textContent = pendingCount;
+  document.getElementById('albumCount').textContent = owned;
+  document.getElementById('albumPercent').textContent = percent + '%';
+  document.getElementById('albumProgressBar').style.width = percent + '%';
+  document.getElementById('homeProgressBar').style.width = percent + '%';
+  document.getElementById('homeProgressText').textContent = percent + '% completado';
+  document.getElementById('profilePercent').textContent = percent + '%';
+  document.getElementById('profileRing').setAttribute('stroke-dashoffset', 264 - (264 * percent / 100));
+  document.getElementById('profileTrades').textContent = appState.pendingTrades.length;
+  
+  const pendingBadge = document.getElementById('pendingBadge');
+  const tradesBadge = document.getElementById('tradesBadge');
+  const pendingAlertBadge = document.getElementById('pendingAlertBadge');
+  const pendingCountText = document.getElementById('pendingCountText');
+  
+  if (pendingCount > 0) {
+    pendingBadge.textContent = pendingCount;
+    pendingBadge.classList.remove('hidden');
+    pendingBadge.classList.add('flex');
+    tradesBadge.textContent = pendingCount;
+    tradesBadge.classList.remove('hidden');
+    tradesBadge.classList.add('flex');
+    pendingAlertBadge.classList.remove('hidden');
+    pendingCountText.textContent = pendingCount + ' pendiente' + (pendingCount > 1 ? 's' : '');
+  } else {
+    pendingBadge.classList.add('hidden');
+    pendingBadge.classList.remove('flex');
+    tradesBadge.classList.add('hidden');
+    tradesBadge.classList.remove('flex');
+    pendingAlertBadge.classList.add('hidden');
+    pendingCountText.textContent = 'Sin pendientes';
+  }
+}
+
+function renderStickerCard(p, team, showTeam = true) {
+  const isOwned = appState.ownedStickers.has(p.id);
+  const posColors = {
+    'POR': 'bg-yellow-500',
+    'DEF': 'bg-blue-600',
+    'MED': 'bg-green-600',
+    'DEL': 'bg-red-600'
+  };
+  
+  return `
+    <div class="sticker-slot ${isOwned ? 'owned' : ''}" onclick="toggleSticker(${p.id})">
+      ${isOwned ? '<div class="holo-effect"></div>' : ''}
+      <div class="h-3/4 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+        <img src="${stickerImgUrl}" alt="${p.name}" class="w-full h-full object-cover">
+        <div class="absolute top-2 left-2 bg-white text-gray-800 text-xs font-black w-6 h-6 rounded-full flex items-center justify-center border border-gray-300 shadow-sm">${p.num}</div>
+        ${isOwned ? `<div class="absolute inset-0 flex items-center justify-center bg-green-500/10"><i class="fas fa-check-circle text-4xl text-green-600 drop-shadow animate-bounce-in"></i></div>` : ''}
+      </div>
+      <div class="h-1/4 p-2 flex flex-col justify-center bg-white border-t border-gray-200">
+        <div class="text-xs font-bold text-gray-800 truncate leading-tight">${p.name}</div>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-[10px] font-bold text-white px-1.5 py-0.5 rounded ${posColors[p.pos]} uppercase">${p.pos}</span>
+          ${showTeam ? `<span class="text-[10px] text-gray-500 font-medium">${team.flag}</span>` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderFeatured() {
+  const container = document.getElementById('featuredStickers');
+  let featured = [];
+  albumGroups.slice(0, 2).forEach(g => {
+    g.teams.slice(0, 1).forEach(t => {
+      featured = featured.concat(t.players.slice(0, 3));
+    });
+  });
+  container.innerHTML = featured.map(p => {
+    const team = albumGroups[0].teams.find(t => t.players.some(pl => pl.id === p.id)) || albumGroups[0].teams[0];
+    return renderStickerCard(p, team);
+  }).join('');
+}
+
+function renderAlbum() {
+  const filter = document.getElementById('albumFilter').value;
+  const container = document.getElementById('albumGrid');
+  let html = '';
+
+  albumGroups.forEach(group => {
+    html += `<div class="album-page">`;
+    html += `<div class="flex items-center justify-between mb-5 pb-3 border-b border-gray-200">`;
+    html += `<div class="flex items-center gap-3">`;
+    html += `<span class="bg-gray-900 text-white font-bold px-3 py-1 rounded text-sm">${group.groupName}</span>`;
+    html += `<span class="text-gray-500 text-xs">4 Equipos • 12 Fichas</span>`;
+    html += `</div></div>`;
+    
+    group.teams.forEach(team => {
+      html += `<div class="mb-5 last:mb-0">`;
+      html += `<div class="flex items-center gap-2 mb-3">`;
+      html += `<span class="text-2xl">${team.flag}</span>`;
+      html += `<h3 class="text-base font-bold text-gray-800">${team.country}</h3>`;
+      const teamOwned = team.players.filter(p => appState.ownedStickers.has(p.id)).length;
+      html += `<span class="ml-auto text-xs font-medium text-green-700 bg-green-100 px-2 py-0.5 rounded">${teamOwned}/${team.players.length}</span>`;
+      html += `</div>`;
+      
+      html += `<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">`;
+      team.players.forEach(p => {
+        const isOwned = appState.ownedStickers.has(p.id);
+        if (filter === 'owned' && !isOwned) return;
+        if (filter === 'missing' && isOwned) return;
+        html += renderStickerCard(p, team);
+      });
+      html += `</div></div>`;
+    });
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+  updateStats();
+}
+
+function toggleSticker(id) {
+  if (appState.ownedStickers.has(id)) {
+    appState.ownedStickers.delete(id);
+    showToast('Ficha removida', 'warning');
+  } else {
+    appState.ownedStickers.add(id);
+    showToast('¡Ficha obtenida!', 'success');
+  }
+  updateStats();
+  renderAlbum();
+  renderFeatured();
+  renderProfileStickers();
+}
+
+function filterOffers(filter, btn) {
+  appState.currentOfferFilter = filter;
+  btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderExchange();
+}
+
+function renderExchange() {
+  const container = document.getElementById('exchangeList');
+  const offers = [
+    {user: "Carlos_99", avatar: "C", offers: "Lionel Messi (Argentina)", wants: "Kylian Mbappé (Francia)", time: "hace 10 min", legend: true},
+    {user: "MariaFutbol", avatar: "M", offers: "Vinícius Jr. (Brasil)", wants: "Jude Bellingham (Inglaterra)", time: "hace 30 min", legend: true},
+    {user: "JuanGol", avatar: "J", offers: "Erling Haaland (Noruega)", wants: "Cristiano Ronaldo (Portugal)", time: "hace 1 hora", legend: true},
+    {user: "AnaCromo", avatar: "A", offers: "Kevin De Bruyne (Bélgica)", wants: "Luka Modrić (Croacia)", time: "hace 2 horas", legend: false},
+    {user: "PedroFutbol", avatar: "P", offers: "Pedri (España)", wants: "Gavi (España)", time: "hace 3 horas", legend: false},
+  ];
+
+  let filtered = offers;
+  if (appState.currentOfferFilter === 'legend') filtered = offers.filter(o => o.legend);
+  if (appState.currentOfferFilter === 'recent') filtered = offers.slice(0, 3);
+
+  container.innerHTML = filtered.map((o, idx) => `
+    <div class="card p-4">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white text-sm">${o.avatar}</div>
+        <div class="flex-1">
+          <div class="font-bold text-sm">${o.user} ${o.legend ? '<i class="fas fa-star text-yellow-500 text-xs"></i>' : ''}</div>
+          <div class="text-xs text-gray-500">${o.time}</div>
+        </div>
+        <span class="text-xs px-2 py-1 rounded bg-red-100 text-red-700 font-medium">Intercambio</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <div class="bg-blue-50 rounded-lg p-2 border border-blue-200">
+          <div class="text-xs text-blue-700 font-medium mb-0.5">Ofrece:</div>
+          <div class="font-bold text-sm text-blue-900">${o.offers}</div>
+        </div>
+        <div class="bg-red-50 rounded-lg p-2 border border-red-200">
+          <div class="text-xs text-red-700 font-medium mb-0.5">Busca:</div>
+          <div class="font-bold text-sm text-red-900">${o.wants}</div>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="proposeTrade('${o.user}', '${o.offers}', '${o.wants}')" class="btn-primary flex-1 py-1.5 rounded-lg font-bold text-sm">
+          <i class="fas fa-handshake mr-1"></i> Proponer
+        </button>
+        <button onclick="openChatWith('${o.user}')" class="btn-outline px-3 py-1.5 rounded-lg text-sm">
+          <i class="fas fa-comment"></i>
+        </button>
+        <button onclick="reportOffer(${idx})" class="btn-outline px-3 py-1.5 rounded-lg text-sm text-red-600">
+          <i class="fas fa-flag"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function proposeTrade(user, offers, wants) {
+  openModal('🤝 Proponer Intercambio', `
+    <div class="space-y-3">
+      <p class="text-sm text-gray-600">Proponiendo intercambio con <strong>${user}</strong></p>
+      <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500">
+        <div class="text-xs text-blue-700 font-medium">Ellos ofrecen:</div>
+        <div class="font-bold text-blue-900">${offers}</div>
+      </div>
+      <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-500">
+        <div class="text-xs text-red-700 font-medium">Ellos buscan:</div>
+        <div class="font-bold text-red-900">${wants}</div>
+      </div>
+      <textarea id="tradeMsg" placeholder="Mensaje (opcional)" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm h-16 resize-none focus:outline-none focus:border-blue-500"></textarea>
+      <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-500">
+        <div class="text-xs text-yellow-800 font-medium"><i class="fas fa-info-circle mr-1"></i> Nota:</div>
+        <div class="text-xs text-yellow-700">El intercambio quedará pendiente hasta que ${user} lo acepte.</div>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="confirmTrade('${user}', '${offers}', '${wants}')" class="btn-primary flex-1 py-2 rounded-lg font-bold text-sm">Enviar</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmTrade(user, offers, wants) {
+  const msg = document.getElementById('tradeMsg')?.value || '';
+  appState.pendingTrades.unshift({
+    id: Date.now(),
+    from: appState.currentUser || 'Yo',
+    fromAvatar: (appState.currentUser || 'U').charAt(0).toUpperCase(),
+    to: user,
+    toAvatar: user.charAt(0).toUpperCase(),
+    gives: offers,
+    wants: wants,
+    message: msg || 'Propuesta de intercambio',
+    status: 'pending',
+    direction: 'sent',
+    createdAt: 'ahora',
+    updatedAt: 'ahora'
+  });
+  closeModal();
+  updateStats();
+  renderPendingTrades();
+  showToast(`¡Intercambio propuesto a ${user}!`, 'success');
+}
+
+function openChatWith(user) {
+  const contact = chatContacts.find(c => c.name === user);
+  if (contact) {
+    selectChat(chatContacts.indexOf(contact));
+    showView('chat');
+  } else {
+    showToast('Usuario no encontrado', 'warning');
+  }
+}
+
+function reportOffer(idx) {
+  openModal('🚩 Reportar Oferta', `
+    <div class="space-y-3">
+      <p class="text-sm text-gray-600">¿Por qué deseas reportar esta oferta?</p>
+      <div class="space-y-2">
+        <label class="flex items-center gap-2 cursor-pointer text-sm"><input type="radio" name="report" value="spam" class="accent-blue-600"> Spam</label>
+        <label class="flex items-center gap-2 cursor-pointer text-sm"><input type="radio" name="report" value="fake" class="accent-blue-600"> Ficha falsa</label>
+        <label class="flex items-center gap-2 cursor-pointer text-sm"><input type="radio" name="report" value="scam" class="accent-blue-600"> Posible estafa</label>
+        <label class="flex items-center gap-2 cursor-pointer text-sm"><input type="radio" name="report" value="other" class="accent-blue-600"> Otro motivo</label>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="confirmReport()" class="btn-primary flex-1 py-2 rounded-lg font-bold text-sm">Reportar</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmReport() {
+  closeModal();
+  showToast('Oferta reportada', 'success');
+}
+
+function createOffer() {
+  const give = document.getElementById('offerGive').value;
+  const want = document.getElementById('offerWant').value;
+  if (!give || !want) { showToast('Selecciona qué ofreces y buscas', 'warning'); return; }
+  showToast(`¡Oferta publicada!`, 'success');
+  document.getElementById('offerMessage').value = '';
+}
+
+function filterPending(filter, btn) {
+  appState.currentPendingFilter = filter;
+  document.querySelectorAll('[data-pending-filter]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPendingTrades();
+}
+
+function renderPendingTrades() {
+  const container = document.getElementById('pendingList');
+  const emptyState = document.getElementById('pendingEmpty');
+  const filter = appState.currentPendingFilter;
+  
+  let filtered = appState.pendingTrades;
+  if (filter !== 'all') {
+    if (filter === 'sent') filtered = appState.pendingTrades.filter(t => t.direction === 'sent');
+    else filtered = appState.pendingTrades.filter(t => t.status === filter);
+  }
+
+  const counts = {
+    pending: appState.pendingTrades.filter(t => t.status === 'pending').length,
+    accepted: appState.pendingTrades.filter(t => t.status === 'accepted').length,
+    rejected: appState.pendingTrades.filter(t => t.status === 'rejected').length,
+    completed: appState.pendingTrades.filter(t => t.status === 'completed').length
+  };
+  
+  document.getElementById('pendingTotal').textContent = counts.pending;
+  document.getElementById('completedTotal').textContent = counts.completed;
+  document.getElementById('sumPending').textContent = counts.pending;
+  document.getElementById('sumAccepted').textContent = counts.accepted;
+  document.getElementById('sumRejected').textContent = counts.rejected;
+  document.getElementById('sumCompleted').textContent = counts.completed;
+
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    emptyState.classList.remove('hidden');
+    return;
+  }
+  emptyState.classList.add('hidden');
+
+  container.innerHTML = filtered.map(t => {
+    const statusIcons = { pending: 'fa-hourglass-half', accepted: 'fa-check-circle', rejected: 'fa-times-circle', completed: 'fa-trophy' };
+    const statusLabels = { pending: 'Pendiente', accepted: 'Aceptado', rejected: 'Rechazado', completed: 'Completado' };
+    const isReceived = t.direction === 'received';
+    const isPending = t.status === 'pending';
+    const isAccepted = t.status === 'accepted';
+
+    return `
+      <div class="trade-card status-${t.status} p-4 animate-slide-up">
+        <div class="flex items-start justify-between mb-3 flex-wrap gap-2">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white shadow-sm">
+                ${isReceived ? t.fromAvatar : t.toAvatar}
+              </div>
+              ${isPending && isReceived ? '<div class="notification-dot"></div>' : ''}
+            </div>
+            <div>
+              <div class="font-bold text-sm">
+                ${isReceived ? `${t.from} te propone` : `Propuesta a ${t.to}`}
+              </div>
+              <div class="text-xs text-gray-500">${t.createdAt} • ${t.updatedAt}</div>
+            </div>
+          </div>
+          <span class="status-badge status-${t.status}">
+            <i class="fas ${statusIcons[t.status]}"></i> ${statusLabels[t.status]}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
+          <div class="bg-blue-50 rounded-lg p-3 border border-blue-200">
+            <div class="text-xs text-blue-700 font-bold uppercase tracking-wide mb-1">
+              <i class="fas fa-gift mr-1"></i> ${isReceived ? 'Te ofrece' : 'Ofreces'}
+            </div>
+            <div class="font-bold text-gray-800">${t.gives}</div>
+          </div>
+          <div class="bg-red-50 rounded-lg p-3 border border-red-200">
+            <div class="text-xs text-red-700 font-bold uppercase tracking-wide mb-1">
+              <i class="fas fa-search mr-1"></i> ${isReceived ? 'Busca' : 'Buscas'}
+            </div>
+            <div class="font-bold text-gray-800">${t.wants}</div>
+          </div>
+        </div>
+
+        ${t.message ? `
+        <div class="bg-gray-50 rounded-lg p-3 mb-3 border-l-4 border-gray-300">
+          <div class="text-xs text-gray-500 font-medium mb-1">
+            <i class="fas fa-comment-dots mr-1"></i> Mensaje:
+          </div>
+          <div class="text-sm text-gray-700 italic">"${t.message}"</div>
+        </div>
+        ` : ''}
+
+        <div class="flex gap-2 flex-wrap">
+          ${isPending && isReceived ? `
+            <button onclick="acceptTrade(${t.id})" class="btn-green flex-1 py-1.5 rounded-lg font-bold text-sm min-w-[110px]">
+              <i class="fas fa-check mr-1"></i> Aceptar
+            </button>
+            <button onclick="rejectTrade(${t.id})" class="btn-red flex-1 py-1.5 rounded-lg font-bold text-sm min-w-[110px]">
+              <i class="fas fa-times mr-1"></i> Rechazar
+            </button>
+          ` : ''}
+          ${isPending && !isReceived ? `
+            <button onclick="cancelTrade(${t.id})" class="btn-red flex-1 py-1.5 rounded-lg font-bold text-sm">
+              <i class="fas fa-undo mr-1"></i> Cancelar
+            </button>
+          ` : ''}
+          ${isAccepted ? `
+            <button onclick="completeTrade(${t.id})" class="btn-primary flex-1 py-1.5 rounded-lg font-bold text-sm">
+              <i class="fas fa-check-double mr-1"></i> Completar
+            </button>
+          ` : ''}
+          <button onclick="viewTradeDetails(${t.id})" class="btn-outline px-3 py-1.5 rounded-lg text-sm">
+            <i class="fas fa-eye mr-1"></i> Detalles
+          </button>
+          ${isPending ? `
+            <button onclick="chatAboutTrade(${t.id})" class="btn-outline px-3 py-1.5 rounded-lg text-sm">
+              <i class="fas fa-comment mr-1"></i> Chatear
+            </button>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function acceptTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (!trade) return;
+  openModal('✅ Aceptar Intercambio', `
+    <div class="text-center space-y-3">
+      <div class="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center">
+        <i class="fas fa-check text-3xl text-green-600"></i>
+      </div>
+      <h3 class="text-lg font-bold">¿Aceptar este intercambio?</h3>
+      <p class="text-sm text-gray-600">
+        <strong>${trade.from}</strong> ofrece <strong class="text-blue-700">${trade.gives}</strong><br>
+        A cambio de <strong class="text-red-700">${trade.wants}</strong>
+      </p>
+      <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-500 text-left">
+        <div class="text-xs text-yellow-800 font-medium"><i class="fas fa-info-circle mr-1"></i> Importante:</div>
+        <div class="text-xs text-yellow-700">Al aceptar, ambas fichas se marcarán como intercambiadas.</div>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="confirmAcceptTrade(${id})" class="btn-green flex-1 py-2 rounded-lg font-bold text-sm">Aceptar</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmAcceptTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (trade) {
+    trade.status = 'accepted';
+    trade.updatedAt = 'ahora';
+    closeModal();
+    updateStats();
+    renderPendingTrades();
+    showToast(`¡Intercambio con ${trade.from} aceptado!`, 'success');
+  }
+}
+
+function rejectTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (!trade) return;
+  openModal('❌ Rechazar Intercambio', `
+    <div class="text-center space-y-3">
+      <div class="w-16 h-16 mx-auto rounded-full bg-red-100 flex items-center justify-center">
+        <i class="fas fa-times text-3xl text-red-600"></i>
+      </div>
+      <h3 class="text-lg font-bold">¿Rechazar propuesta?</h3>
+      <p class="text-sm text-gray-600">Rechazarás la propuesta de <strong>${trade.from}</strong></p>
+      <textarea id="rejectReason" placeholder="Motivo (opcional)" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm h-16 resize-none focus:outline-none focus:border-red-500"></textarea>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="confirmRejectTrade(${id})" class="btn-red flex-1 py-2 rounded-lg font-bold text-sm">Rechazar</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmRejectTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (trade) {
+    trade.status = 'rejected';
+    trade.updatedAt = 'ahora';
+    closeModal();
+    updateStats();
+    renderPendingTrades();
+    showToast(`Intercambio rechazado`, 'warning');
+  }
+}
+
+function cancelTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (!trade) return;
+  openModal('↩️ Cancelar Propuesta', `
+    <div class="text-center space-y-3">
+      <div class="w-16 h-16 mx-auto rounded-full bg-yellow-100 flex items-center justify-center">
+        <i class="fas fa-undo text-3xl text-yellow-600"></i>
+      </div>
+      <h3 class="text-lg font-bold">¿Cancelar propuesta?</h3>
+      <p class="text-sm text-gray-600">Tu propuesta a <strong>${trade.to}</strong> será eliminada</p>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">No</button>
+        <button onclick="confirmCancelTrade(${id})" class="btn-red flex-1 py-2 rounded-lg font-bold text-sm">Sí, cancelar</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmCancelTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (trade) {
+    trade.status = 'rejected';
+    trade.updatedAt = 'ahora';
+    closeModal();
+    updateStats();
+    renderPendingTrades();
+    showToast('Propuesta cancelada', 'info');
+  }
+}
+
+function completeTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (!trade) return;
+  openModal('🏆 Completar Intercambio', `
+    <div class="text-center space-y-3">
+      <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center">
+        <i class="fas fa-trophy text-3xl text-blue-600"></i>
+      </div>
+      <h3 class="text-lg font-bold">¡Intercambio Completado!</h3>
+      <p class="text-sm text-gray-600">Marca este intercambio como completado</p>
+      <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500">
+        <div class="text-sm font-bold text-blue-800 mb-1">Resumen:</div>
+        <div class="text-xs text-blue-700">${trade.gives} ↔ ${trade.wants}</div>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="confirmCompleteTrade(${id})" class="btn-primary flex-1 py-2 rounded-lg font-bold text-sm">Completar</button>
+      </div>
+    </div>
+  `);
+}
+
+function confirmCompleteTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (trade) {
+    trade.status = 'completed';
+    trade.updatedAt = 'ahora';
+    closeModal();
+    updateStats();
+    renderPendingTrades();
+    showToast('¡Intercambio completado!', 'success');
+  }
+}
+
+function viewTradeDetails(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (!trade) return;
+  const statusIcons = { pending: 'fa-hourglass-half text-yellow-600', accepted: 'fa-check-circle text-green-600', rejected: 'fa-times-circle text-red-600', completed: 'fa-trophy text-blue-600' };
+  const statusLabels = { pending: 'Pendiente', accepted: 'Aceptado', rejected: 'Rechazado', completed: 'Completado' };
+
+  openModal(' Detalles', `
+    <div class="space-y-3">
+      <div class="flex items-center gap-3 pb-3 border-b border-gray-200">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white">${trade.fromAvatar}</div>
+        <div class="flex-1">
+          <div class="font-bold text-sm">${trade.from} → ${trade.to}</div>
+          <div class="text-xs text-gray-500">Creado: ${trade.createdAt}</div>
+        </div>
+        <i class="fas ${statusIcons[trade.status]} text-xl"></i>
+      </div>
+      <div class="bg-gray-50 p-3 rounded-lg">
+        <div class="text-xs text-gray-500 font-medium mb-1">Estado:</div>
+        <div class="font-bold">${statusLabels[trade.status]}</div>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+          <div class="text-xs text-blue-700 font-bold mb-1">OFRECE</div>
+          <div class="font-bold text-sm">${trade.gives}</div>
+        </div>
+        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+          <div class="text-xs text-red-700 font-bold mb-1">BUSCA</div>
+          <div class="font-bold text-sm">${trade.wants}</div>
+        </div>
+      </div>
+      ${trade.message ? `
+      <div class="bg-gray-50 p-3 rounded-lg">
+        <div class="text-xs text-gray-500 font-medium mb-1">Mensaje:</div>
+        <div class="text-sm text-gray-700 italic">"${trade.message}"</div>
+      </div>
+      ` : ''}
+      <div class="bg-yellow-50 p-3 rounded-lg">
+        <div class="text-xs text-yellow-800 font-medium mb-1">Dirección:</div>
+        <div class="text-sm text-yellow-700">${trade.direction === 'sent' ? '📤 Enviada por ti' : '📥 Recibida'}</div>
+      </div>
+      <button onclick="closeModal()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm">Cerrar</button>
+    </div>
+  `);
+}
+
+function chatAboutTrade(id) {
+  const trade = appState.pendingTrades.find(t => t.id === id);
+  if (!trade) return;
+  const contact = chatContacts.find(c => c.name === (trade.direction === 'sent' ? trade.to : trade.from));
+  if (contact) {
+    selectChat(chatContacts.indexOf(contact));
+    showView('chat');
+    setTimeout(() => {
+      document.getElementById('chatInput').value = `Hola! Sobre el intercambio: ${trade.gives} ↔ ${trade.wants}`;
+      document.getElementById('chatInput').focus();
+    }, 300);
+  } else {
+    showToast('Usuario no encontrado', 'warning');
+  }
+}
+
+function filterVenues(filter, btn) {
+  appState.currentVenueFilter = filter;
+  document.querySelectorAll('[data-venue-filter]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderVenues();
+}
+
+function renderVenues() {
+  const container = document.getElementById('venuesGrid');
+  const filter = appState.currentVenueFilter;
+  let filtered = venuesData;
+  if (filter !== 'all') filtered = venuesData.filter(v => v.country === filter);
+
+  const countryNames = { mexico: 'México 🇲🇽', usa: 'USA 🇺', canada: 'Canadá 🇨' };
+  const countryClasses = { mexico: 'country-mexico', usa: 'country-usa', canada: 'country-canada' };
+
+  container.innerHTML = filtered.map(v => `
+    <div class="stadium-card animate-slide-up">
+      <div class="stadium-img" style="background-image: url('${v.image}');">
+        <div class="stadium-country-badge ${countryClasses[v.country]}">
+          ${countryNames[v.country]}
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-bold text-gray-800 mb-1">${v.name}</h3>
+        <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+          <i class="fas fa-map-marker-alt text-red-500"></i>
+          <span>${v.city}</span>
+        </div>
+        <p class="text-sm text-gray-600 mb-3">${v.description}</p>
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <div class="bg-green-50 rounded-lg p-2 text-center border border-green-200">
+            <div class="text-xs text-gray-600">Capacidad</div>
+            <div class="font-bold text-green-700">${v.capacity}</div>
+          </div>
+          <div class="bg-blue-50 rounded-lg p-2 text-center border border-blue-200">
+            <div class="text-xs text-gray-600">Partidos</div>
+            <div class="font-bold text-blue-700">${v.matches}</div>
+          </div>
+        </div>
+        <button onclick="showVenueDetails(${v.id})" class="btn-primary w-full py-1.5 rounded-lg font-bold text-sm">
+          <i class="fas fa-info-circle mr-1"></i> Detalles
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function showVenueDetails(id) {
+  const venue = venuesData.find(v => v.id === id);
+  if (!venue) return;
+  const countryNames = { mexico: 'México 🇽', usa: 'USA 🇺🇸', canada: 'Canadá 🇨🇦' };
+
+  openModal(`🏟️ ${venue.name}`, `
+    <div class="space-y-3">
+      <img src="${venue.image}" alt="${venue.name}" class="w-full h-40 object-cover rounded-lg">
+      <div>
+        <h3 class="text-xl font-bold">${venue.name}</h3>
+        <div class="flex items-center gap-2 text-gray-600 text-sm">
+          <i class="fas fa-map-marker-alt text-red-500"></i>
+          <span>${venue.city}, ${countryNames[venue.country]}</span>
+        </div>
+      </div>
+      <p class="text-gray-700 text-sm">${venue.description}</p>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="bg-green-50 p-3 rounded-lg text-center border border-green-200">
+          <div class="text-xs text-gray-600">Capacidad</div>
+          <div class="font-bold text-lg text-green-700">${venue.capacity}</div>
+        </div>
+        <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-200">
+          <div class="text-xs text-gray-600">Partidos</div>
+          <div class="font-bold text-lg text-blue-700">${venue.matches}</div>
+        </div>
+      </div>
+      <button onclick="closeModal()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm">Cerrar</button>
+    </div>
+  `);
+}
+
+function renderFeed() {
+  const container = document.getElementById('feedList');
+  container.innerHTML = feedData.map(p => `
+    <div class="feed-post p-4">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white">${p.avatar}</div>
+        <div class="flex-1">
+          <div class="font-bold text-sm">${p.user}</div>
+          <div class="text-sm text-gray-600">${p.action} <span class="font-medium text-blue-600">${p.sticker}</span></div>
+          <div class="text-xs text-gray-400">${p.time}</div>
+        </div>
+        <button onclick="postOptions(${p.id})" class="text-gray-400 hover:text-gray-600">
+          <i class="fas fa-ellipsis-h"></i>
+        </button>
+      </div>
+      ${p.stickerImg ? `
+      <div class="rounded-lg p-3 mb-3 flex items-center gap-3 border border-gray-200 bg-gray-50">
+        <img src="${stickerImgUrl}" alt="${p.sticker}" class="w-16 h-24 rounded object-cover shadow-sm">
+        <div>
+          <div class="font-bold">${p.sticker}</div>
+          <div class="text-sm text-gray-600">Ficha del Mundial 2026</div>
+          <div class="text-xs text-yellow-600 mt-1 font-medium"><i class="fas fa-star"></i> Legend</div>
+        </div>
+      </div>
+      ` : ''}
+      <div class="flex gap-4 text-sm text-gray-600 border-t border-gray-200 pt-3">
+        <button onclick="toggleLike(${p.id})" class="like-btn ${p.liked ? 'liked' : ''} hover:text-red-500 transition flex items-center gap-1 font-medium">
+          <i class="${p.liked ? 'fas' : 'far'} fa-heart"></i> <span>${p.likes}</span>
+        </button>
+        <button onclick="openComments(${p.id})" class="hover:text-blue-500 transition flex items-center gap-1 font-medium">
+          <i class="far fa-comment"></i> ${p.comments}
+        </button>
+        <button onclick="sharePost(${p.id})" class="hover:text-yellow-500 transition flex items-center gap-1 font-medium">
+          <i class="far fa-share-square"></i> Compartir
+        </button>
+        <button onclick="savePost(${p.id})" class="hover:text-purple-500 transition flex items-center gap-1 font-medium ml-auto">
+          <i class="far fa-bookmark"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleLike(id) {
+  const post = feedData.find(p => p.id === id);
+  if (post) {
+    post.liked = !post.liked;
+    post.likes += post.liked ? 1 : -1;
+    renderFeed();
+    if (post.liked) showToast('¡Te gustó!', 'success');
+  }
+}
+
+function openComments(id) {
+  const post = feedData.find(p => p.id === id);
+  openModal(`💬 Comentarios (${post.comments})`, `
+    <div class="space-y-2">
+      <div class="bg-gray-50 p-3 rounded-lg">
+        <div class="font-bold text-sm">FanFutbol22</div>
+        <div class="text-sm text-gray-600">¡Qué crack! 🔥</div>
+      </div>
+      <div class="bg-gray-50 p-3 rounded-lg">
+        <div class="font-bold text-sm">CromoKing</div>
+        <div class="text-sm text-gray-600">La tengo, ¿la cambias?</div>
+      </div>
+      <div class="flex gap-2 mt-3">
+        <input type="text" id="commentInput" placeholder="Escribe un comentario..." class="flex-1 bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+        <button onclick="addComment(${id})" class="btn-primary px-3 py-2 rounded-lg font-bold">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  `);
+}
+
+function addComment(id) {
+  const input = document.getElementById('commentInput');
+  const text = input.value.trim();
+  if (!text) { showToast('Escribe un comentario', 'warning'); return; }
+  const post = feedData.find(p => p.id === id);
+  post.comments++;
+  closeModal();
+  renderFeed();
+  showToast('Comentario publicado', 'success');
+}
+
+function sharePost(id) {
+  openModal('📤 Compartir', `
+    <div class="space-y-2">
+      <button onclick="closeModal(); showToast('Enlace copiado', 'success')" class="w-full btn-outline py-2 rounded-lg font-medium text-sm text-left px-4">
+        <i class="fas fa-link mr-2"></i> Copiar enlace
+      </button>
+      <button onclick="closeModal(); showToast('Compartido en Facebook', 'success')" class="w-full btn-outline py-2 rounded-lg font-medium text-sm text-left px-4">
+        <i class="fab fa-facebook mr-2 text-blue-600"></i> Facebook
+      </button>
+      <button onclick="closeModal(); showToast('Compartido en Twitter', 'success')" class="w-full btn-outline py-2 rounded-lg font-medium text-sm text-left px-4">
+        <i class="fab fa-twitter mr-2 text-blue-500"></i> Twitter
+      </button>
+      <button onclick="closeModal(); showToast('Compartido en WhatsApp', 'success')" class="w-full btn-outline py-2 rounded-lg font-medium text-sm text-left px-4">
+        <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
+      </button>
+    </div>
+  `);
+}
+
+function savePost(id) {
+  showToast('Publicación guardada', 'success');
+}
+
+function postOptions(id) {
+  openModal('⚙️ Opciones', `
+    <div class="space-y-2">
+      <button onclick="closeModal(); showToast('Publicación reportada', 'success')" class="w-full text-left px-4 py-3 rounded-lg hover:bg-red-50 text-red-600 font-medium text-sm">
+        <i class="fas fa-flag mr-2"></i> Reportar
+      </button>
+      <button onclick="closeModal(); showToast('Usuario silenciado', 'warning')" class="w-full text-left px-4 py-3 rounded-lg hover:bg-yellow-50 text-yellow-600 font-medium text-sm">
+        <i class="fas fa-ban mr-2"></i> Silenciar
+      </button>
+      <button onclick="closeModal()" class="w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-600 font-medium text-sm">
+        <i class="fas fa-times mr-2"></i> Cancelar
+      </button>
+    </div>
+  `);
+}
+
+function attachPhoto() {
+  showToast('📷 Selector de fotos abierto', 'info');
+  appState.postAttachments.push('photo');
+}
+
+function attachSticker() {
+  openModal('🎴 Seleccionar Ficha', `
+    <div class="grid grid-cols-3 gap-2 max-h-60 overflow-y-auto">
+      ${albumGroups[0].teams[0].players.map(p => `
+        <button onclick="selectStickerAttachment('${p.name}')" class="p-2 border border-gray-300 rounded-lg hover:border-blue-500 transition">
+          <img src="${stickerImgUrl}" class="w-full aspect-[3/4] object-cover rounded">
+          <div class="text-xs font-bold mt-1 truncate">${p.name}</div>
+        </button>
+      `).join('')}
+    </div>
+  `);
+}
+
+function selectStickerAttachment(name) {
+  closeModal();
+  appState.postAttachments.push('sticker:' + name);
+  showToast(`Ficha "${name}" añadida`, 'success');
+}
+
+function attachLocation() {
+  showToast(' Ubicación: Estadio Azteca', 'info');
+  appState.postAttachments.push('location');
+}
+
+function createPost() {
+  const text = document.getElementById('feedText').value;
+  if (!text.trim() && appState.postAttachments.length === 0) { 
+    showToast('Escribe algo o adjunta contenido', 'warning'); 
+    return; 
+  }
+  feedData.unshift({
+    id: Date.now(),
+    user: appState.currentUser || 'Usuario',
+    avatar: (appState.currentUser || 'U').charAt(0).toUpperCase(),
+    action: "publicó",
+    sticker: text.substring(0, 30) || 'una nueva ficha',
+    time: "ahora",
+    likes: 0, comments: 0, liked: false, stickerImg: appState.postAttachments.some(a => a.startsWith('sticker'))
+  });
+  document.getElementById('feedText').value = '';
+  appState.postAttachments = [];
+  renderFeed();
+  showToast('¡Publicación creada!', 'success');
+}
+
+function filterMatches(phase, btn) {
+  appState.currentMatchFilter = phase;
+  document.querySelectorAll('#matchFilters button').forEach(b => {
+    b.className = 'btn-outline px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap';
+  });
+  btn.className = 'btn-primary px-4 py-1.5 rounded-full font-bold text-sm whitespace-nowrap';
+  renderMatches();
+}
+
+function renderMatches() {
+  const container = document.getElementById('matchesList');
+  const filtered = appState.currentMatchFilter === 'all' 
+    ? matchesData 
+    : matchesData.filter(m => m.phase === appState.currentMatchFilter);
+  
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-12"><i class="fas fa-calendar-times text-4xl mb-2 opacity-30"></i><br>Sin partidos</div>';
+    return;
+  }
+  
+  container.innerHTML = filtered.map(m => `
+    <div class="match-card p-4">
+      <div class="text-xs font-bold mb-3 flex justify-between">
+        <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded">${m.group}</span>
+        <span class="text-gray-500">${m.stadium}</span>
+      </div>
+      <div class="flex items-center justify-between mb-3">
+        <div class="text-center flex-1">
+          <div class="text-3xl mb-1">${m.flag1}</div>
+          <div class="font-bold text-sm">${m.team1}</div>
+        </div>
+        <div class="text-center px-3">
+          <div class="text-xl font-black text-gray-400">VS</div>
+        </div>
+        <div class="text-center flex-1">
+          <div class="text-3xl mb-1">${m.flag2}</div>
+          <div class="font-bold text-sm">${m.team2}</div>
+        </div>
+      </div>
+      <div class="flex justify-between items-center text-sm border-t border-gray-200 pt-3">
+        <div class="text-gray-600"><i class="far fa-calendar mr-1"></i> ${m.date}</div>
+        <div class="font-bold text-green-600"><i class="far fa-clock mr-1"></i> ${m.time}</div>
+      </div>
+      <button onclick="toggleRemind(${m.id})" class="w-full mt-3 py-1.5 rounded-lg font-bold text-sm ${m.reminded ? 'btn-green' : 'btn-primary'}">
+        <i class="fas fa-${m.reminded ? 'bell' : 'bell-slash'} mr-1"></i> ${m.reminded ? 'Recordatorio activo' : 'Recordar'}
+      </button>
+      <button onclick="showMatchDetails(${m.id})" class="w-full mt-2 py-1.5 rounded-lg font-bold text-sm btn-outline">
+        <i class="fas fa-info-circle mr-1"></i> Detalles
+      </button>
+    </div>
+  `).join('');
+}
+
+function toggleRemind(id) {
+  const match = matchesData.find(m => m.id === id);
+  if (match) {
+    match.reminded = !match.reminded;
+    renderMatches();
+    showToast(match.reminded ? `🔔 Recordatorio activado` : 'Recordatorio desactivado', 'success');
+  }
+}
+
+function showMatchDetails(id) {
+  const match = matchesData.find(m => m.id === id);
+  openModal(`⚽ ${match.team1} vs ${match.team2}`, `
+    <div class="space-y-3">
+      <div class="text-center">
+        <div class="text-5xl mb-2">${match.flag1} vs ${match.flag2}</div>
+        <div class="font-bold text-lg">${match.team1} vs ${match.team2}</div>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+          <div class="text-xs text-gray-500">Fecha</div>
+          <div class="font-bold text-blue-700">${match.date}</div>
+        </div>
+        <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+          <div class="text-xs text-gray-500">Hora</div>
+          <div class="font-bold text-red-700">${match.time}</div>
+        </div>
+        <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+          <div class="text-xs text-gray-500">Estadio</div>
+          <div class="font-bold text-green-700">${match.stadium}</div>
+        </div>
+        <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+          <div class="text-xs text-gray-500">Fase</div>
+          <div class="font-bold text-yellow-700">${match.group}</div>
+        </div>
+      </div>
+      <button onclick="closeModal()" class="btn-primary w-full py-2 rounded-lg font-bold text-sm">Cerrar</button>
+    </div>
+  `);
+}
+
+function renderChatContacts() {
+  const container = document.getElementById('chatContacts');
+  container.innerHTML = chatContacts.map((c, i) => `
+    <div onclick="selectChat(${i})" class="flex items-center gap-3 p-2 rounded-lg cursor-pointer hover:bg-gray-50 transition ${i === appState.currentChatPartner ? 'bg-blue-50 border border-blue-200' : 'border border-transparent'}">
+      <div class="relative">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center font-bold text-white text-sm">${c.avatar}</div>
+        <div class="absolute bottom-0 right-0 w-3 h-3 ${c.online ? 'bg-green-500' : 'bg-gray-400'} rounded-full border-2 border-white"></div>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="font-bold text-sm">${c.name}</div>
+        <div class="text-xs text-gray-500 truncate">${c.lastMsg}</div>
+      </div>
+      <div class="text-right">
+        <div class="text-xs text-gray-400">${c.time}</div>
+        ${c.unread > 0 ? `<div class="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center mt-1 mx-auto font-bold">${c.unread}</div>` : ''}
+      </div>
+    </div>
+  `).join('');
+  
+  const totalUnread = chatContacts.reduce((sum, c) => sum + c.unread, 0);
+  document.getElementById('chatBadge').textContent = totalUnread;
+  document.getElementById('chatBadge').style.display = totalUnread > 0 ? 'flex' : 'none';
+}
+
+function selectChat(index) {
+  appState.currentChatPartner = index;
+  const contact = chatContacts[index];
+  contact.unread = 0;
+  document.getElementById('chatPartnerName').textContent = contact.name;
+  document.getElementById('chatPartnerAvatar').textContent = contact.avatar;
+  renderChatContacts();
+  renderChatMessages();
+}
+
+function renderChatMessages() {
+  const container = document.getElementById('chatMessages');
+  container.innerHTML = chatMessages.map(m => `
+    <div class="flex ${m.from === 'me' ? 'justify-end' : 'justify-start'} animate-slide-up">
+      <div class="${m.from === 'me' ? 'chat-bubble-me' : 'chat-bubble-other'} px-3 py-2 max-w-xs shadow-sm">
+        <div class="text-sm">${m.text}</div>
+        <div class="text-xs ${m.from === 'me' ? 'text-white/70' : 'text-gray-400'} mt-1 text-right">${m.time}</div>
+      </div>
+    </div>
+  `).join('');
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  chatMessages.push({from: 'me', text: text, time: 'ahora'});
+  input.value = '';
+  renderChatMessages();
+  setTimeout(() => {
+    const responses = ['¡Perfecto! Te confirmo 👍', '¡Genial! Nos vemos ahí', 'Déjame revisar mi álbum', '¡Trato hecho! 🤝', '¿Tienes otras fichas?'];
+    chatMessages.push({from: 'other', text: responses[Math.floor(Math.random() * responses.length)], time: 'ahora'});
+    renderChatMessages();
+  }, 1200);
+}
+
+function attachEmoji() {
+  const emojis = ['⚽', '🏆', '', '❤️', '🔥', '', '⭐', ''];
+  const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+  document.getElementById('chatInput').value += emoji;
+  document.getElementById('chatInput').focus();
+}
+
+function openNewChat() {
+  openModal('💬 Nuevo Chat', `
+    <div class="space-y-2">
+      <input type="text" placeholder="Buscar usuario..." class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+      <div class="text-sm font-medium text-gray-600 mt-2">Sugerencias:</div>
+      ${['FutbolFan88', 'CromoMaster', 'WorldCup2026'].map(u => `
+        <button onclick="closeModal(); showToast('Chat iniciado con ${u}', 'success')" class="w-full text-left px-3 py-2 rounded-lg border border-gray-300 hover:bg-blue-50 font-medium text-sm">
+          <i class="fas fa-user-circle mr-2 text-blue-600"></i> ${u}
+        </button>
+      `).join('')}
+    </div>
+  `);
+}
+
+function openChatOptions() {
+  const contact = chatContacts[appState.currentChatPartner];
+  openModal('⚙️ Opciones', `
+    <div class="space-y-1">
+      <button onclick="closeModal(); showToast('Perfil de ${contact.name}', 'info')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-50 font-medium text-sm">
+        <i class="fas fa-user mr-2 text-blue-600"></i> Ver perfil
+      </button>
+      <button onclick="closeModal(); showToast('Notificaciones silenciadas', 'warning')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-yellow-50 font-medium text-sm">
+        <i class="fas fa-bell-slash mr-2 text-yellow-600"></i> Silenciar
+      </button>
+      <button onclick="closeModal(); showToast('Chat limpiado', 'info')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-50 font-medium text-sm">
+        <i class="fas fa-trash mr-2 text-gray-500"></i> Limpiar
+      </button>
+      <button onclick="closeModal()" class="w-full text-left px-3 py-2 rounded-lg hover:bg-red-50 font-medium text-sm text-red-600">
+        <i class="fas fa-times mr-2"></i> Cerrar
+      </button>
+    </div>
+  `);
+}
+
+function renderProfileStickers() {
+  const container = document.getElementById('profileStickers');
+  let ownedStickers = [];
+  albumGroups.forEach(group => {
+    group.teams.forEach(team => {
+      team.players.forEach(p => {
+        if (appState.ownedStickers.has(p.id)) {
+          ownedStickers.push({...p, country: team.country, flag: team.flag});
+        }
+      });
+    });
+  });
+
+  if (ownedStickers.length === 0) {
+    container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8"><i class="fas fa-book-open text-3xl mb-2 opacity-30"></i><br class="text-sm">Aún no tienes fichas</div>';
+    return;
+  }
+
+  container.innerHTML = ownedStickers.map(p => {
+    const team = albumGroups.find(g => g.teams.some(t => t.players.some(pl => pl.id === p.id)))?.teams.find(t => t.players.some(pl => pl.id === p.id));
+    return renderStickerCard(p, team || {country: p.country, flag: p.flag});
+  }).join('');
+}
+
+function editProfile() {
+  openModal('✏️ Editar Perfil', `
+    <div class="space-y-3">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
+        <input type="text" id="editName" value="${appState.currentUser}" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+        <textarea id="editBio" class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm h-16 resize-none focus:outline-none focus:border-blue-500" placeholder="Cuéntanos sobre ti...">Coleccionista apasionado del Mundial 2026</textarea>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">País favorito</label>
+        <select class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+          <option>Argentina 🇦🇷</option>
+          <option>Brasil 🇧🇷</option>
+          <option>México 🇲🇽</option>
+          <option>España 🇪🇸</option>
+          <option>Francia 🇫🇷</option>
+        </select>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="closeModal()" class="btn-outline flex-1 py-2 rounded-lg font-bold text-sm">Cancelar</button>
+        <button onclick="saveProfile()" class="btn-primary flex-1 py-2 rounded-lg font-bold text-sm">Guardar</button>
+      </div>
+    </div>
+  `);
+}
+
+function saveProfile() {
+  const name = document.getElementById('editName').value;
+  if (name) {
+    appState.currentUser = name;
+    document.getElementById('navUsername').textContent = name;
+    document.getElementById('navAvatar').textContent = name.charAt(0).toUpperCase();
+    document.getElementById('profileName').textContent = name;
+    document.getElementById('profileAvatar').textContent = name.charAt(0).toUpperCase();
+  }
+  closeModal();
+  showToast('Perfil actualizado', 'success');
+}
+
+function shareProfile() {
+  openModal(' Compartir Perfil', `
+    <div class="space-y-3">
+      <div class="bg-blue-50 p-3 rounded-lg text-center border border-blue-200">
+        <div class="text-sm text-gray-600 mb-1">Tu enlace:</div>
+        <div class="font-bold text-blue-700 break-all text-sm">mundialswap.com/u/${appState.currentUser}</div>
+      </div>
+      <button onclick="closeModal(); showToast('Enlace copiado', 'success')" class="w-full btn-primary py-2 rounded-lg font-bold text-sm">
+        <i class="fas fa-copy mr-2"></i> Copiar
+      </button>
+    </div>
+  `);
+}
+
+function viewMyAlbum() { showView('album'); }
+
+function showAchievement(title, desc) {
+  openModal('🏆 Logro', `
+    <div class="text-center space-y-3">
+      <i class="fas fa-trophy text-5xl text-yellow-500 animate-bounce-in"></i>
+      <h3 class="text-lg font-bold">${title}</h3>
+      <p class="text-gray-600 text-sm">${desc}</p>
+      <button onclick="closeModal()" class="btn-primary px-6 py-2 rounded-lg font-bold text-sm">¡Genial!</button>
+    </div>
+  `);
+}
+</script>
+</body>
+</html>
+```
