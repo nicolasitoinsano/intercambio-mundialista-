@@ -31,7 +31,7 @@ export const AppProvider = ({ children }) => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       if (session) {
-        fetchProfile(session.user.id);
+        fetchProfile(session.user.id, session.user.user_metadata, session.user.email);
         setCurrentView('home');
       }
     });
@@ -39,7 +39,7 @@ export const AppProvider = ({ children }) => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if (session) {
-        fetchProfile(session.user.id);
+        fetchProfile(session.user.id, session.user.user_metadata, session.user.email);
         setCurrentView('home');
       } else {
         setCurrentUser(null);
@@ -51,17 +51,45 @@ export const AppProvider = ({ children }) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const fetchProfile = async (userId) => {
+  const fetchProfile = async (userId, userMetadata, userEmail) => {
     const { data, error } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', userId)
       .single();
+      
     if (!error && data) {
       setCurrentUser(data);
       fetchUserStickers(userId);
       fetchFeed();
       fetchTrades(userId);
+    } else if (error) {
+      console.warn("Profile not found in database, creating one on the fly...", error);
+      const username = userMetadata?.username || userEmail?.split('@')[0] || 'Usuario';
+      const { error: insertError } = await supabase
+        .from('profiles')
+        .insert({
+          id: userId,
+          username: username,
+          bio: 'Coleccionista apasionado del Mundial 2026'
+        });
+      
+      if (!insertError) {
+        // Retry fetch
+        const { data: newData } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', userId)
+          .single();
+        if (newData) {
+          setCurrentUser(newData);
+          fetchUserStickers(userId);
+          fetchFeed();
+          fetchTrades(userId);
+        }
+      } else {
+        console.error("Error creating profile row:", insertError);
+      }
     }
   };
 
